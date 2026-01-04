@@ -1,0 +1,3634 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fox Protection | Vehicle Wrapping, PPF & Window Tinting</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="./images/logo.jpg">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* RESET AND BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.5s ease, color 0.3s ease;
+        }
+        
+        :root {
+            /* Light Theme - Fox Orange Theme */
+            --primary-light: #0d2840;
+            --secondary-light: #ff8c42;
+            --accent-light: #1e6f5c;
+            --light-light: #f8f9fa;
+            --dark-light: #1a1a1a;
+            --gray-light: #6c757d;
+            --card-light: #ffffff;
+            --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --border-light: rgba(0, 0, 0, 0.05);
+            
+            /* Dark Theme - Fox Dark Theme */
+            --primary-dark: #121212;
+            --secondary-dark: #ff8c42;
+            --accent-dark: #2a9d8f;
+            --light-dark: #1e1e1e;
+            --dark-dark: #f5f5f5;
+            --gray-dark: #b0b0b0;
+            --card-dark: #2d2d2d;
+            --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --border-dark: rgba(255, 255, 255, 0.05);
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-light);
+            background-color: var(--light-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        body.dark-mode {
+            color: var(--dark-dark);
+            background-color: var(--primary-dark);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* MAIN CONTENT WRAPPER */
+        .main-content {
+            flex: 1;
+        }
+        
+        /* FOX PROTECTION BRAND STYLES */
+        .logo-img {
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        
+        .social-header {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-left: 20px;
+        }
+        
+        .social-header a {
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-header a:hover {
+            color: var(--secondary-light);
+            transform: translateY(-2px);
+        }
+        
+        .dark-mode .social-header a {
+            color: var(--dark-dark);
+        }
+        
+        .dark-mode .social-header a:hover {
+            color: var(--secondary-dark);
+        }
+        
+        /* BRAND COLORS - Based on Instagram/Facebook */
+        .brand-orange {
+            color: #ff8c42;
+        }
+        
+        .brand-blue {
+            color: #0d2840;
+        }
+        
+        /* SERVICE BADGES */
+        .service-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff8c42, #ff6a00);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+        }
+        
+        .dark-mode .service-badge {
+            background: linear-gradient(135deg, #ff8c42, #ff6a00);
+        }
+        
+        /* ROLL SPECIFICATIONS STYLES */
+        .roll-specs-container {
+            margin: 20px 0;
+        }
+        
+        .roll-specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .roll-spec-card {
+            background: var(--border-light);
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            border-left: 4px solid var(--secondary-light);
+        }
+        
+        .dark-mode .roll-spec-card {
+            background: var(--border-dark);
+        }
+        
+        .roll-spec-label {
+            font-size: 0.85rem;
+            color: var(--gray-light);
+            margin-bottom: 5px;
+            display: block;
+        }
+        
+        .dark-mode .roll-spec-label {
+            color: var(--gray-dark);
+        }
+        
+        .roll-spec-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--secondary-light);
+            display: block;
+        }
+        
+        .dark-mode .roll-spec-value {
+            color: var(--secondary-dark);
+        }
+        
+        .thickness-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary-light), var(--accent-light));
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin: 10px 0;
+        }
+        
+        .dark-mode .thickness-badge {
+            background: linear-gradient(135deg, var(--secondary-dark), var(--accent-dark));
+        }
+        
+        .spec-section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-light);
+            margin: 20px 0 10px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--secondary-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .dark-mode .spec-section-title {
+            color: var(--dark-dark);
+        }
+        
+        .spec-section-title i {
+            color: var(--secondary-light);
+        }
+        
+        /* Product specifications section */
+        .product-specs {
+            margin: 20px 0;
+            padding: 20px;
+            background: var(--border-light);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 140, 66, 0.2);
+        }
+        
+        .dark-mode .product-specs {
+            background: var(--border-dark);
+            border-color: rgba(255, 140, 66, 0.3);
+        }
+        
+        .spec-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--primary-light);
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .dark-mode .spec-title {
+            color: var(--dark-dark);
+        }
+        
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+        
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dotted var(--border-light);
+        }
+        
+        .dark-mode .spec-item {
+            border-bottom-color: var(--border-dark);
+        }
+        
+        .spec-label {
+            color: var(--gray-light);
+            font-size: 0.9rem;
+        }
+        
+        .dark-mode .spec-label {
+            color: var(--gray-dark);
+        }
+        
+        .spec-value {
+            font-weight: 600;
+            color: var(--primary-light);
+            text-align: right;
+        }
+        
+        .dark-mode .spec-value {
+            color: var(--dark-dark);
+        }
+        
+        /* INSTAGRAM GALLERY */
+        .instagram-gallery {
+            padding: 4rem 0;
+            background: var(--light-light);
+        }
+        
+        .dark-mode .instagram-gallery {
+            background: var(--primary-dark);
+        }
+        
+        .instagram-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        
+        .instagram-post {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease;
+        }
+        
+        .dark-mode .instagram-post {
+            box-shadow: var(--shadow-dark);
+        }
+        
+        .instagram-post:hover {
+            transform: translateY(-5px);
+        }
+        
+        .instagram-post img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .instagram-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            padding: 15px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .instagram-post:hover .instagram-overlay {
+            opacity: 1;
+        }
+        
+        .instagram-link {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .instagram-post:hover .instagram-link {
+            opacity: 1;
+        }
+        
+        /* YOUTUBE SECTION */
+        .youtube-section {
+            padding: 4rem 0;
+            background: var(--card-light);
+        }
+        
+        .dark-mode .youtube-section {
+            background: var(--card-dark);
+        }
+        
+        .youtube-videos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+        
+        .youtube-video {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease;
+        }
+        
+        .dark-mode .youtube-video {
+            box-shadow: var(--shadow-dark);
+        }
+        
+        .youtube-video:hover {
+            transform: translateY(-5px);
+        }
+        
+        .youtube-video iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+        
+        .video-info {
+            padding: 15px;
+            background: var(--border-light);
+        }
+        
+        .dark-mode .video-info {
+            background: var(--border-dark);
+        }
+        
+        /* Fixed Header Controls */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto;
+        }
+        
+        .theme-toggle, .lang-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .theme-toggle:hover, .lang-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .dark-mode .theme-toggle, .dark-mode .lang-toggle {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--dark-dark);
+        }
+        
+        .dark-mode .theme-toggle:hover, .dark-mode .lang-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .lang-toggle span {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            animation: float 6s ease-in-out infinite;
+            overflow: hidden;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .whatsapp-float:hover::before {
+            transform: scale(1.5);
+        }
+        
+        .whatsapp-text {
+            font-size: 0.7rem;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* Selection Summary Bar */
+        .selection-summary {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--secondary-light);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .selection-summary.active {
+            transform: translateY(0);
+        }
+        
+        .dark-mode .selection-summary {
+            background: var(--secondary-dark);
+        }
+        
+        .selected-items-count {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .send-whatsapp-summary {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .send-whatsapp-summary:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+        }
+        
+        .clear-selection {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .clear-selection:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-light);
+            color: white;
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-mode header {
+            background-color: var(--light-dark);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.2rem;
+            color: var(--secondary-light);
+            background: rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .logo:hover .logo-icon::after {
+            animation: shine 1.5s ease;
+        }
+        
+        @keyframes shine {
+            100% { transform: translateX(100%); }
+        }
+        
+        .dark-mode .logo-icon {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, var(--secondary-light), #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .dark-mode .logo-text h1 {
+            background: linear-gradient(to right, var(--secondary-dark), #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .logo-text p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode nav a {
+            color: var(--dark-dark);
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--secondary-light);
+            bottom: 0;
+            left: 0;
+            transition: width 0.4s ease;
+            border-radius: 3px;
+        }
+        
+        .dark-mode nav a:after {
+            background: var(--secondary-dark);
+        }
+        
+        nav a:hover:after, nav a.active:after {
+            width: 100%;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-light);
+        }
+        
+        .dark-mode nav a:hover {
+            color: var(--secondary-dark);
+        }
+        
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            background: var(--primary-light);
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            background: rgba(13, 40, 64, 0.85);
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 0 2rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .slide h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slide p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .slider-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: var(--secondary-light);
+            transform: scale(1.2);
+        }
+        
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slider-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .slider-arrow.prev {
+            left: 20px;
+        }
+        
+        .slider-arrow.next {
+            right: 20px;
+        }
+        
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 4rem;
+            padding: 0 20px;
+        }
+        
+        .category-tab {
+            padding: 12px 25px;
+            background: var(--card-light);
+            border: 2px solid var(--border-light);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--primary-light);
+            white-space: nowrap;
+        }
+        
+        .dark-mode .category-tab {
+            background: var(--card-dark);
+            border-color: var(--border-dark);
+            color: var(--dark-dark);
+        }
+        
+        .category-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .dark-mode .category-tab:hover {
+            box-shadow: var(--shadow-dark);
+        }
+        
+        .category-tab.active {
+            background: var(--secondary-light);
+            color: white;
+            border-color: var(--secondary-light);
+        }
+        
+        .dark-mode .category-tab.active {
+            background: var(--secondary-dark);
+            border-color: var(--secondary-dark);
+        }
+        
+        /* Products Section */
+        .products-section, .services-section {
+            padding: 5rem 0;
+            background: var(--light-light);
+        }
+        
+        .dark-mode .products-section, .dark-mode .services-section {
+            background: var(--primary-dark);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-light);
+        }
+        
+        .dark-mode .section-title {
+            color: var(--dark-dark);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary-light), var(--accent-light));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        .dark-mode .section-title h2:after {
+            background: linear-gradient(to right, var(--secondary-dark), var(--accent-dark));
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .dark-mode .section-title p {
+            color: var(--gray-dark);
+        }
+        
+        /* Category Section */
+        .category-section {
+            margin-bottom: 4rem;
+            animation: fadeIn 0.5s ease;
+            display: none;
+        }
+        
+        .category-section.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-light);
+        }
+        
+        .dark-mode .category-header {
+            border-bottom-color: var(--border-dark);
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            color: var(--secondary-light);
+            background: var(--card-light);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .dark-mode .category-icon {
+            background: var(--card-dark);
+            color: var(--secondary-dark);
+        }
+        
+        .category-title {
+            font-size: 2rem;
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+        
+        .dark-mode .category-title {
+            color: var(--dark-dark);
+        }
+        
+        .category-description {
+            color: var(--gray-light);
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+        
+        .dark-mode .category-description {
+            color: var(--gray-dark);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background: var(--card-light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+        
+        .dark-mode .product-card {
+            background: var(--card-dark);
+            box-shadow: var(--shadow-dark);
+            border-color: var(--border-dark);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dark-mode .product-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .selection-checkbox {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 2;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            accent-color: var(--secondary-light);
+        }
+        
+        .product-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .download-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary-light);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+        }
+        
+        .dark-mode .download-badge {
+            background: var(--secondary-dark);
+        }
+        
+        .download-badge:hover {
+            background: #ff6a00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 140, 66, 0.4);
+        }
+        
+        .product-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-light);
+            line-height: 1.3;
+        }
+        
+        .dark-mode .product-title {
+            color: var(--dark-dark);
+        }
+        
+        .product-description {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        .dark-mode .product-description {
+            color: var(--gray-dark);
+        }
+        
+        .product-features {
+            margin: 15px 0;
+            padding: 12px;
+            background: var(--border-light);
+            border-radius: 8px;
+        }
+        
+        .dark-mode .product-features {
+            background: var(--border-dark);
+        }
+        
+        .product-features li {
+            list-style: none;
+            margin-bottom: 6px;
+            padding-left: 18px;
+            position: relative;
+            color: var(--gray-light);
+            font-size: 0.9rem;
+        }
+        
+        .dark-mode .product-features li {
+            color: var(--gray-dark);
+        }
+        
+        .product-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-light);
+            font-weight: bold;
+        }
+        
+        .dark-mode .product-features li:before {
+            color: var(--secondary-dark);
+        }
+        
+        .contact-options {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        .contact-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .email-btn {
+            background: #4285f4;
+            color: white;
+        }
+        
+        .email-btn:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(66, 133, 244, 0.3);
+        }
+        
+        .call-btn {
+            background: var(--accent-light);
+            color: white;
+        }
+        
+        .dark-mode .call-btn {
+            background: var(--accent-dark);
+        }
+        
+        .call-btn:hover {
+            background: #1a5c4a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(30, 111, 92, 0.3);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .service-card {
+            background: var(--card-light);
+            padding: 30px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+        
+        .dark-mode .service-card {
+            background: var(--card-dark);
+            box-shadow: var(--shadow-dark);
+            border-color: var(--border-dark);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-mode .service-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .service-checkbox {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            accent-color: var(--secondary-light);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-light);
+            background: var(--border-light);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        
+        .dark-mode .service-icon {
+            background: var(--border-dark);
+            color: var(--secondary-dark);
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+        
+        .dark-mode .service-title {
+            color: var(--dark-dark);
+        }
+        
+        .service-card p {
+            color: var(--gray-light);
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        .dark-mode .service-card p {
+            color: var(--gray-dark);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--card-light);
+            padding: 4rem 0;
+            border-radius: 15px;
+            margin: 3rem auto;
+            max-width: 1000px;
+        }
+        
+        .dark-mode .contact-section {
+            background: var(--card-dark);
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            text-align: center;
+            padding: 25px;
+            background: var(--border-light);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .contact-item {
+            background: var(--border-dark);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .contact-icon {
+            font-size: 2.2rem;
+            color: var(--secondary-light);
+            margin-bottom: 15px;
+        }
+        
+        .dark-mode .contact-icon {
+            color: var(--secondary-dark);
+        }
+        
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-light);
+        }
+        
+        .dark-mode .contact-item h3 {
+            color: var(--dark-dark);
+        }
+        
+        /* Google Maps Section */
+        .map-section {
+            padding: 4rem 0;
+            background: var(--light-light);
+        }
+        
+        .dark-mode .map-section {
+            background: var(--primary-dark);
+        }
+        
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            height: 450px;
+            margin-top: 2rem;
+        }
+        
+        .dark-mode .map-container {
+            box-shadow: var(--shadow-dark);
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--border-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-light);
+        }
+        
+        .dark-mode .map-placeholder {
+            background: var(--border-dark);
+            color: var(--gray-dark);
+        }
+        
+        .map-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--secondary-light);
+        }
+        
+        .dark-mode .map-placeholder i {
+            color: var(--secondary-dark);
+        }
+        
+        .map-placeholder p {
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 500px;
+            padding: 0 20px;
+        }
+        
+        /* FIXED: Footer */
+        footer {
+            background-color: #0a1f32;
+            color: white;
+            padding: 5rem 0 2.5rem;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin-top: auto;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .dark-mode footer {
+            background-color: #000000;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-section h4 {
+            color: var(--secondary-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 12px;
+            font-weight: 800;
+        }
+        
+        .footer-section h4:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-light);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .footer-section p {
+            opacity: 0.9;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links li {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-light);
+            transform: translateX(8px);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icons a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary-light);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .social-icons a:hover::before {
+            transform: scale(1);
+        }
+        
+        .social-icons a i {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-light), var(--accent-light));
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+        
+        .dark-mode .scroll-progress {
+            background: linear-gradient(to right, var(--secondary-dark), var(--accent-dark));
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .slide h2 {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+            
+            .roll-specs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .instagram-posts, .youtube-videos {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-slider {
+                height: 500px;
+            }
+            
+            .slide h2 {
+                font-size: 2.2rem;
+            }
+            
+            .slide-content {
+                padding: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 2.5rem;
+            }
+            
+            .contact-options {
+                flex-direction: column;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+            
+            .instagram-posts, .youtube-videos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .social-header {
+                margin-left: 0;
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .header-controls {
+                order: 4;
+                width: 100%;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+            
+            nav {
+                order: 2;
+            }
+            
+            nav ul {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero-slider {
+                height: 450px;
+            }
+            
+            .slide h2 {
+                font-size: 1.8rem;
+            }
+            
+            .slide p {
+                font-size: 1rem;
+            }
+            
+            .slide-content {
+                padding: 1.5rem;
+                margin: 0 1rem;
+            }
+            
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .category-tabs {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 10px;
+            }
+            
+            .category-tab {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .footer-section h4:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-links a:hover {
+                transform: translateX(5px);
+            }
+            
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .selection-summary {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .selected-items-count {
+                font-size: 1rem;
+            }
+            
+            .roll-specs-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .spec-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .instagram-posts, .youtube-videos {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Arabic Support */
+        .ar {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .ar .section-title h2:after {
+            left: unset;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        .ar .footer-section h4:after {
+            left: unset;
+            right: 0;
+        }
+        
+        .ar .footer-links a:hover {
+            transform: translateX(-8px);
+        }
+        
+        .ar .contact-options {
+            flex-direction: row-reverse;
+        }
+        
+        .ar .category-header {
+            text-align: right;
+        }
+        
+        .ar .contact-info {
+            direction: rtl;
+        }
+        
+        .ar .selection-checkbox,
+        .ar .service-checkbox {
+            left: unset;
+            right: 15px;
+        }
+        
+        .ar .spec-item {
+            flex-direction: row-reverse;
+        }
+        
+        .ar .spec-value {
+            text-align: left;
+        }
+        
+        .ar .roll-spec-card {
+            border-left: none;
+            border-right: 4px solid var(--secondary-light);
+        }
+        
+        .ar .spec-section-title {
+            justify-content: flex-end;
+        }
+        
+        /* Image fallback styles */
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            background: #f5f5f5;
+            font-size: 0;
+        }
+        
+img:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #666;
+}
+        .product-image, .instagram-post, .youtube-video {
+            position: relative;
+            overflow: hidden;
+            background: var(--border-light);
+        }
+        
+        .dark-mode .product-image, .dark-mode .instagram-post, .dark-mode .youtube-video {
+            background: var(--border-dark);
+        }
+    </style>
+    
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly" defer></script>
+</head>
+<body class="en">
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Selection Summary Bar -->
+    <div class="selection-summary" id="selectionSummary">
+        <div class="selected-items-count">
+            <span class="en-text">Selected Items: <span id="selectedCount">0</span></span>
+            <span class="ar-text" style="display:none;">العناصر المحددة: <span id="selectedCountAr">0</span></span>
+        </div>
+        <div class="selection-actions">
+            <button class="clear-selection" id="clearSelection">
+                <span class="en-text">Clear All</span>
+                <span class="ar-text" style="display:none;">مسح الكل</span>
+            </button>
+            <button class="send-whatsapp-summary" id="sendWhatsAppSummary">
+                <i class="fab fa-whatsapp"></i>
+                <span class="en-text">Send via WhatsApp</span>
+                <span class="ar-text" style="display:none;">إرسال عبر واتساب</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/96566216681?text=Hello%20Fox%20Protection%2C%20I%20need%20information%20about%20vehicle%20wrapping%20and%20protection%20services" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-text">Chat</div>
+    </a>
+    
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <img src="./images/logo.jpg" alt="Fox Protection Logo" class="logo-img">
+                </div>
+                <div class="logo-text">
+                    <h1>Fox Protection</h1>
+                    <p>Vehicle Wrapping, PPF & Window Tinting</p>
+                </div>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#categories">Products</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#instagram">Gallery</a></li>
+                    <li><a href="#youtube">Videos</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="social-header">
+                <a href="https://www.instagram.com/foxprotection/?hl=en" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/foxprotection1/" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="https://www.youtube.com/@foxprotection9131" target="_blank" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+            
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle">
+                    <i class="fas fa-globe"></i>
+                    <span>EN</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Slider -->
+        <section class="hero-slider" id="home">
+            <!-- Slides will be loaded by JavaScript -->
+            <div class="slider-controls" id="sliderDots"></div>
+            <button class="slider-arrow prev" id="prevSlide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-arrow next" id="nextSlide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </section>
+        
+        <!-- Categories Section -->
+        <section class="products-section" id="categories">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="en-text">Our Premium Products</h2>
+                    <h2 class="ar-text" style="display:none;">منتجاتنا المميزة</h2>
+                    <p class="en-text">High-quality vehicle protection films and wrapping materials</p>
+                    <p class="ar-text" style="display:none;">أفلام حماية المركبات عالية الجودة ومواد التغليف</p>
+                </div>
+                
+                <div class="category-tabs" id="categoryTabs">
+                    <!-- Category tabs will be generated by JavaScript -->
+                </div>
+                
+                <div id="categoriesContainer">
+                    <!-- Category sections will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section class="services-section" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="en-text">Our Professional Services</h2>
+                    <h2 class="ar-text" style="display:none;">خدماتنا الاحترافية</h2>
+                    <p class="en-text">Complete vehicle protection and customization solutions</p>
+                    <p class="ar-text" style="display:none;">حلول كاملة لحماية وتخصيص المركبات</p>
+                </div>
+                
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Services will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Instagram Gallery Section -->
+        <section class="instagram-gallery" id="instagram">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="en-text">Our Work Gallery</h2>
+                    <h2 class="ar-text" style="display:none;">معرض أعمالنا</h2>
+                    <p class="en-text">Check out our latest projects on Instagram</p>
+                    <p class="ar-text" style="display:none;">شاهد أحدث مشاريعنا على إنستجرام</p>
+                    <a href="https://www.instagram.com/foxprotection/?hl=en" target="_blank" class="contact-btn whatsapp-btn" style="margin-top: 20px; display: inline-flex; background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);">
+                        <i class="fab fa-instagram"></i>
+                        <span class="en-text">Follow us on Instagram</span>
+                        <span class="ar-text" style="display:none;">تابعنا على إنستجرام</span>
+                    </a>
+                </div>
+                
+                <div class="instagram-posts" id="instagramPosts">
+                    <!-- Instagram posts will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- YouTube Section -->
+        <section class="youtube-section" id="youtube">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="en-text">Our YouTube Videos</h2>
+                    <h2 class="ar-text" style="display:none;">فيديوهات يوتيوب لدينا</h2>
+                    <p class="en-text">Watch our installation process and completed projects</p>
+                    <p class="ar-text" style="display:none;">شاهد عملية التثبيت والمشاريع المكتملة لدينا</p>
+                    <a href="https://www.youtube.com/@foxprotection9131" target="_blank" class="contact-btn whatsapp-btn" style="margin-top: 20px; display: inline-flex; background: #FF0000;">
+                        <i class="fab fa-youtube"></i>
+                        <span class="en-text">Subscribe on YouTube</span>
+                        <span class="ar-text" style="display:none;">اشترك في يوتيوب</span>
+                    </a>
+                </div>
+                
+                <div class="youtube-videos" id="youtubeVideos">
+                    <!-- YouTube videos will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Google Maps Location Section -->
+        <section class="map-section" id="location">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="en-text">Our Location</h2>
+                    <h2 class="ar-text" style="display:none;">موقعنا</h2>
+                    <p class="en-text">Visit us at our workshop in Al-Rai, Mohammad ben Qasem Area</p>
+                    <p class="ar-text" style="display:none;">زرنا في ورشتنا في منطقة الري، محمد بن قاسم</p>
+                </div>
+                
+              <div class="map-container">
+                    <div id="googleMap" class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p class="en-text">Loading Google Maps...</p>
+                        <p class="ar-text" style="display:none;">جاري تحميل خرائط جوجل...</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info" style="margin-top: 30px;">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="en-text">Address</h3>
+                        <h3 class="ar-text" style="display:none;">العنوان</h3>
+                        <p>Al-Rai, Mohammad ben Qasem Area</p>
+                        <p class="en-text">Kuwait</p>
+                        <p class="ar-text" style="display:none;">الكويت</p>
+                    </div>
+                    
+                    <div class="contact-item fade-in delay-1">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="en-text">Working Hours</h3>
+                        <h3 class="ar-text" style="display:none;">ساعات العمل</h3>
+                        <p class="en-text">Saturday - Thursday</p>
+                        <p class="ar-text" style="display:none;">السبت - الخميس</p>
+                        <p>8:00 AM - 7:00 PM</p>
+                        <p class="en-text">Friday: 10:00 AM - 5:00 PM</p>
+                        <p class="ar-text" style="display:none;">الجمعة: 10 صباحًا - 5 مساءً</p>
+                    </div>
+                    
+                    <div class="contact-item fade-in delay-2">
+                        <div class="contact-icon">
+                            <i class="fas fa-directions"></i>
+                        </div>
+                        <h3 class="en-text">Get Directions</h3>
+                        <h3 class="ar-text" style="display:none;">احصل على الاتجاهات</h3>
+                        <p class="en-text">Click below to open in Google Maps</p>
+                        <p class="ar-text" style="display:none;">انقر أدناه لفتح في خرائط جوجل</p>
+                        <button class="contact-btn whatsapp-btn" onclick="openGoogleMaps()" style="margin-top: 15px;">
+                            <i class="fas fa-external-link-alt"></i> 
+                            <span class="en-text">Open Maps</span>
+                            <span class="ar-text" style="display:none;">فتح الخرائط</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="products-section" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="en-text">Contact Us</h2>
+                    <h2 class="ar-text" style="display:none;">اتصل بنا</h2>
+                    <p class="en-text">Get in touch for vehicle wrapping and protection services</p>
+                    <p class="ar-text" style="display:none;">تواصل معنا لخدمات تغليف وحماية المركبات</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 class="en-text">Call Us</h3>
+                        <h3 class="ar-text" style="display:none;">اتصل بنا</h3>
+                        <p>+965 6621 6681</p>
+                        <button class="contact-btn call-btn" id="callBtn" style="margin-top: 15px;">
+                            <i class="fas fa-phone"></i> 
+                            <span class="en-text">Call Now</span>
+                            <span class="ar-text" style="display:none;">اتصل الآن</span>
+                        </button>
+                    </div>
+                    
+                    <div class="contact-item fade-in delay-1">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="en-text">Email Us</h3>
+                        <h3 class="ar-text" style="display:none;">راسلنا</h3>
+                        <p>info@foxprotectionkw.com</p>
+                        <button class="contact-btn email-btn" id="emailBtn" style="margin-top: 15px;">
+                            <i class="fas fa-envelope"></i> 
+                            <span class="en-text">Send Email</span>
+                            <span class="ar-text" style="display:none;">إرسال بريد</span>
+                        </button>
+                    </div>
+                    
+                    <div class="contact-item fade-in delay-2">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3 class="en-text">WhatsApp</h3>
+                        <h3 class="ar-text" style="display:none;">واتساب</h3>
+                        <p>Chat with our experts</p>
+                        <button class="contact-btn whatsapp-btn" id="whatsappBtn" style="margin-top: 15px;">
+                            <i class="fab fa-whatsapp"></i> 
+                            <span class="en-text">Start Chat</span>
+                            <span class="ar-text" style="display:none;">ابدأ المحادثة</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section fade-in">
+                    <h4 class="en-text">Fox Protection</h4>
+                    <h4 class="ar-text" style="display:none;">فوكس بروتكشن</h4>
+                    <p class="en-text">Professional vehicle wrapping, PPF installation, window tinting, and ceramic coating services in Kuwait.</p>
+                    <p class="ar-text" style="display:none;">خدمات احترافية لتغليف المركبات، تركيب PPF، تعتيم النوافذ، وطلاء السيراميك في الكويت.</p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/foxprotection/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/foxprotection1/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/@foxprotection9131" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/96566216681" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section fade-in delay-1">
+                    <h4 class="en-text">Quick Links</h4>
+                    <h4 class="ar-text" style="display:none;">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> <span class="en-text">Home</span><span class="ar-text" style="display:none;">الرئيسية</span></a></li>
+                        <li><a href="#categories"><i class="fas fa-chevron-right"></i> <span class="en-text">Products</span><span class="ar-text" style="display:none;">المنتجات</span></a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> <span class="en-text">Services</span><span class="ar-text" style="display:none;">الخدمات</span></a></li>
+                        <li><a href="#instagram"><i class="fas fa-chevron-right"></i> <span class="en-text">Gallery</span><span class="ar-text" style="display:none;">المعرض</span></a></li>
+                        <li><a href="#location"><i class="fas fa-chevron-right"></i> <span class="en-text">Location</span><span class="ar-text" style="display:none;">الموقع</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section fade-in delay-2">
+                    <h4 class="en-text">Contact Info</h4>
+                    <h4 class="ar-text" style="display:none;">معلومات الاتصال</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span class="en-text">Al-Rai, Mohammad ben Qasem, Kuwait</span><span class="ar-text" style="display:none;">الري، محمد بن قاسم، الكويت</span></a></li>
+                        <li><a href="tel:+96566216681"><i class="fas fa-phone"></i> <span>+965 6621 6681</span></a></li>
+                        <li><a href="mailto:info@foxprotectionkw.com"><i class="fas fa-envelope"></i> <span>info@foxprotectionkw.com</span></a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> <span class="en-text">Sat-Thu: 8AM-7PM</span><span class="ar-text" style="display:none;">السبت-الخميس: 8ص-7م</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright fade-in delay-3">
+                <p>&copy; 2023 Fox Protection. <span class="en-text">All rights reserved.</span><span class="ar-text" style="display:none;">جميع الحقوق محفوظة.</span></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><span class="en-text">Professional vehicle protection and customization services</span><span class="ar-text" style="display:none;">خدمات احترافية لحماية وتخصيص المركبات</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Updated Data for sliders based on Instagram/Facebook content
+        const slides = [
+            {
+                image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+                title: 'Professional Vehicle Wrapping',
+                titleAr: 'تغليف المركبات الاحترافي',
+                description: 'Complete vehicle wrapping services with premium 3M/Avery vinyl materials for color change and protection.',
+                descriptionAr: 'خدمات تغليف كاملة للمركبات بمواد فينيل 3M/أفيري مميزة لتغيير اللون والحماية.'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+                title: 'Paint Protection Film (PPF)',
+                titleAr: 'فيلم حماية الطلاء (PPF)',
+                description: 'Premium PPF installation with self-healing technology to protect your vehicle from scratches, chips, and environmental damage.',
+                descriptionAr: 'تركيب فيلم حماية الطلاء المميز بتقنية الالتئام الذاتي لحماية سيارتك من الخدوش والشظايا والأضرار البيئية.'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+                title: 'Window Tinting & Ceramic Coating',
+                titleAr: 'تعتيم النوافذ وطلاء السيراميك',
+                description: 'Professional window tinting and ceramic coating services for heat rejection, UV protection, and long-lasting shine.',
+                descriptionAr: 'خدمات احترافية لتعتيم النوافذ وطلاء السيراميك لطرد الحرارة والحماية من الأشعة فوق البنفسجية ولمعان طويل الأمد.'
+            }
+        ];
+
+        // Instagram Gallery Images - Removed Detailing Service and Vehicle Branding
+        const instagramPosts = [
+            {
+                image: 'https://scontent.fkwi8-1.fna.fbcdn.net/v/t39.30808-6/434836992_1125132172049293_3630703960406164479_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=sg4NPSQcXpAQ7kNvgEcmbj_&_nc_oc=AdhDy8kW3Xz2SK3PZVXUy9cTk27yLcKfM5jP4KfXqUy0He0Puwkl-9itN2G3KJ7-WTY&_nc_zt=23&_nc_ht=scontent.fkwi8-1.fna&_nc_gid=AW3dOavSsdc85i__K5zV_ld&oh=00_AYBiyXGQF-hKQj6zYoynC5tRASkPK7lJSCa2RsoFSMF3tA&oe=67B3C68D',
+                title: 'Vehicle Wrapping Project',
+                titleAr: 'مشروع تغليف مركبة',
+                description: 'Complete color change wrap',
+                descriptionAr: 'تغليف كامل لتغيير اللون'
+            },
+            {
+                image: 'https://scontent.fkwi8-1.fna.fbcdn.net/v/t39.30808-6/434912311_1125131932049317_9111753744486437401_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=0n-TZ82Cg5MQ7kNvgFTsB5N&_nc_oc=AdhG4iUStqWg65a-TGYhHEJq-EmSYnPDI-Mm87L3BvBQxukNTJ_9M20MW3b2Yq--BYA&_nc_zt=23&_nc_ht=scontent.fkwi8-1.fna&_nc_gid=AW3dOavSsdc85i__K5zV_ld&oh=00_AYCC4S0nGSk7HhEo7dCRZOGjZugwTZ7ONqY2yB7kDl4oHg&oe=67B40F1E',
+                title: 'PPF Installation',
+                titleAr: 'تركيب PPF',
+                description: 'Paint protection film application',
+                descriptionAr: 'تطبيق فيلم حماية الطلاء'
+            },
+            {
+                image: 'https://scontent.fkwi8-1.fna.fbcdn.net/v/t39.30808-6/434757303_1125132218715955_2195053176818179025_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_ohc=BlIXDEnNfPwQ7kNvgGY35fH&_nc_oc=AdiHOnnXTDqrXe1Gr5C8GtBylmWl9nLYx8CqGwe7tPH6IDbJ66jHl_Kw__hz2l-tRvw&_nc_zt=23&_nc_ht=scontent.fkwi8-1.fna&_nc_gid=AW3dOavSsdc85i__K5zV_ld&oh=00_AYC7Kt45rnbDbp8iF4TLUqF69YdF0l_tlYg51qjsR9kGEQ&oe=67B3DFA1',
+                title: 'Window Tinting',
+                titleAr: 'تعتيم النوافذ',
+                description: 'Professional window film installation',
+                descriptionAr: 'تركيب احترافي لأفلام النوافذ'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                title: 'Ceramic Coating',
+                titleAr: 'طلاء السيراميك',
+                description: 'Premium ceramic coating application',
+                descriptionAr: 'تطبيق طلاء سيراميك مميز'
+            }
+        ];
+
+        // YouTube Videos
+        const youtubeVideos = [
+            {
+                id: 'video1',
+                title: 'Vehicle Wrapping Process',
+                titleAr: 'عملية تغليف المركبة',
+                description: 'Watch our professional wrapping technique',
+                descriptionAr: 'شاهد تقنية التغليف الاحترافية لدينا',
+                embedUrl: 'https://www.youtube.com/embed/VIDEO_ID_1'
+            },
+            {
+                id: 'video2',
+                title: 'PPF Installation Demo',
+                titleAr: 'عرض تركيب PPF',
+                description: 'See how we install paint protection film',
+                descriptionAr: 'شاهد كيف نركز فيلم حماية الطلاء',
+                embedUrl: 'https://www.youtube.com/embed/VIDEO_ID_2'
+            },
+            {
+                id: 'video3',
+                title: 'Window Tinting Process',
+                titleAr: 'عملية تعتيم النوافذ',
+                description: 'Professional window tint installation',
+                descriptionAr: 'تركيب احترافي لتعتيم النوافذ',
+                embedUrl: 'https://www.youtube.com/embed/VIDEO_ID_3'
+            }
+        ];
+
+        // Product Data based on actual business (Based on Instagram/Facebook analysis)
+        const products = [
+            // VEHICLE WRAPPING MATERIALS - Based on Instagram posts showing color changes
+            {
+                id: 'wrap-3m-vinyl',
+                name: '3M Vinyl Wrap - Premium Series',
+                nameAr: 'فينيل 3M - سلسلة مميزة',
+                category: 'vehicle-wrapping',
+                categoryName: 'Vehicle Wrapping Materials',
+                categoryNameAr: 'مواد تغليف المركبات',
+                categoryIcon: 'fas fa-palette',
+                image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Premium 3M vinyl wraps with air-release technology for bubble-free installation.',
+                descriptionAr: 'لفات فينيل 3M مميزة بتقنية إطلاق الهواء للتثبيت الخالي من الفقاعات.',
+                features: ['3M Brand', 'Air-Release Technology', '5-Year Warranty', '100+ Colors', 'Easy Removal'],
+                rollDetails: {
+                    width: '60" (152 cm)',
+                    length: '75 ft (22.8 m)',
+                    thickness: '3.5 mil',
+                    material: 'Premium Cast Vinyl',
+                    warranty: '5 Years Outdoor',
+                    coverage: 'Complete Vehicle',
+                    priceRange: 'Premium'
+                },
+                specifications: {
+                    'Brand': '3M',
+                    'Series': '1080/2080',
+                    'Roll Width': '60 inches (152 cm)',
+                    'Roll Length': '75 feet (22.8 meters)',
+                    'Film Thickness': '3.5 mil',
+                    'Material': 'Cast Vinyl',
+                    'Warranty': '5 Years Outdoor',
+                    'Finish Options': 'Gloss, Matte, Satin, Chrome, Brushed',
+                    'Color Options': '100+ Colors Available',
+                    'Installation': 'Professional Recommended'
+                },
+                pdfUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+                pdfName: '3m-vinyl-wrap-specifications.pdf'
+            },
+            {
+                id: 'wrap-avery-dennison',
+                name: 'Avery Dennison Vinyl Wrap',
+                nameAr: 'فينيل أفيري دينيسون',
+                category: 'vehicle-wrapping',
+                categoryName: 'Vehicle Wrapping Materials',
+                categoryNameAr: 'مواد تغليف المركبات',
+                categoryIcon: 'fas fa-palette',
+                image: 'https://images.unsplash.com/photo-1507136566006-cfc505b114fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Avery Dennison supreme wrapping film with conformable technology for complex curves.',
+                descriptionAr: 'فيلم تغليف أفيري دينيسون سوبريم بتقنية التوافق للمنحنيات المعقدة.',
+                features: ['Conformable Technology', 'Easy Repositioning', '3-Year Warranty', '80+ Colors', 'High Gloss'],
+                rollDetails: {
+                    width: '60" (152 cm)',
+                    length: '75 ft (22.8 m)',
+                    thickness: '3.2 mil',
+                    material: 'Cast Vinyl',
+                    warranty: '3 Years',
+                    coverage: 'Complete Vehicle',
+                    priceRange: 'Mid-Range'
+                },
+                specifications: {
+                    'Brand': 'Avery Dennison',
+                    'Series': 'Supreme Wrapping Film',
+                    'Roll Width': '60 inches (152 cm)',
+                    'Roll Length': '75 feet (22.8 meters)',
+                    'Film Thickness': '3.2 mil',
+                    'Material': 'Cast Vinyl',
+                    'Warranty': '3 Years',
+                    'Finish Options': 'Gloss, Matte, Satin',
+                    'Color Options': '80+ Colors Available',
+                    'Conformability': 'Excellent for Curves'
+                },
+                pdfUrl: 'https://www.africau.edu/images/default/sample.pdf',
+                pdfName: 'avery-dennison-wrap-guide.pdf'
+            },
+            {
+                id: 'wrap-chrome-matte',
+                name: 'Chrome & Matte Finish Wraps',
+                nameAr: 'لفات تشطيب كروم ومات',
+                category: 'vehicle-wrapping',
+                categoryName: 'Vehicle Wrapping Materials',
+                categoryNameAr: 'مواد تغليف المركبات',
+                categoryIcon: 'fas fa-palette',
+                image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Special effect vinyl wraps including chrome, matte, satin, and brushed metal finishes.',
+                descriptionAr: 'لفات فينيل بتأثيرات خاصة تشمل تشطيبات كروم، مات، ساتين، ومعدن فرشاة.',
+                features: ['Special Effects', 'Metallic Finishes', 'Unique Appearance', '2-Year Warranty', 'Premium Look'],
+                rollDetails: {
+                    width: '60" (152 cm)',
+                    length: '50 ft (15.2 m)',
+                    thickness: '3.8 mil',
+                    material: 'Special Effect Vinyl',
+                    warranty: '2 Years',
+                    coverage: 'Partial/Full',
+                    priceRange: 'Premium'
+                },
+                specifications: {
+                    'Brand': '3M/Avery',
+                    'Type': 'Special Effect Films',
+                    'Roll Width': '60 inches (152 cm)',
+                    'Roll Length': '50 feet (15.2 meters)',
+                    'Film Thickness': '3.8 mil',
+                    'Material': 'Special Effect Vinyl',
+                    'Warranty': '2 Years',
+                    'Finish Options': 'Chrome, Matte, Satin, Brushed, Carbon Fiber',
+                    'Application': 'Professional Only',
+                    'Maintenance': 'Special Care Required'
+                },
+                pdfUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+                pdfName: 'special-effect-wraps-catalog.pdf'
+            },
+
+            // PAINT PROTECTION FILMS (PPF)
+            {
+                id: 'ppf-xpel-ultimate',
+                name: 'XPEL Ultimate Plus PPF',
+                nameAr: 'XPEL ألتيميت بلس PPF',
+                category: 'paint-protection',
+                categoryName: 'Paint Protection Films',
+                categoryNameAr: 'أفلام حماية الطلاء',
+                categoryIcon: 'fas fa-shield-alt',
+                image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'XPEL Ultimate Plus with self-healing technology and 10-year warranty.',
+                descriptionAr: 'XPEL ألتيميت بلس بتقنية الالتئام الذاتي وضمان 10 سنوات.',
+                features: ['Self-Healing', '10-Year Warranty', 'Optical Clarity', 'Hydrophobic', 'Stain Resistant'],
+                rollDetails: {
+                    width: '60" (152 cm)',
+                    length: '75 ft (22.8 m)',
+                    thickness: '8.5 mil',
+                    material: 'Polyurethane',
+                    warranty: '10 Years',
+                    coverage: 'Complete Vehicle',
+                    priceRange: 'Premium'
+                },
+                specifications: {
+                    'Brand': 'XPEL',
+                    'Series': 'Ultimate Plus',
+                    'Roll Width': '60 inches (152 cm)',
+                    'Roll Length': '75 feet (22.8 meters)',
+                    'Film Thickness': '8.5 mil (216 microns)',
+                    'Material': 'Premium Polyurethane',
+                    'Warranty': '10 Years',
+                    'Self-Healing': 'Yes (Heat Activated)',
+                    'UV Protection': '99%',
+                    'Hydrophobic': 'Yes',
+                    'Gloss Retention': 'High'
+                },
+                pdfUrl: 'https://www.africau.edu/images/default/sample.pdf',
+                pdfName: 'xpel-ultimate-ppf-specs.pdf'
+            },
+            {
+                id: 'ppf-suntek-ultra',
+                name: 'SunTek Ultra PPF',
+                nameAr: 'صن تك ألترا PPF',
+                category: 'paint-protection',
+                categoryName: 'Paint Protection Films',
+                categoryNameAr: 'أفلام حماية الطلاء',
+                categoryIcon: 'fas fa-shield-alt',
+                image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'SunTek Ultra paint protection film with self-healing properties and high gloss finish.',
+                descriptionAr: 'فيلم حماية الطلاء صن تك ألترا بخصائص الالتئام الذاتي وتشطيب لامع عالي.',
+                features: ['Self-Healing', 'High Gloss', '5-Year Warranty', 'Clear Coat', 'Easy Maintenance'],
+                rollDetails: {
+                    width: '60" (152 cm)',
+                    length: '50 ft (15.2 m)',
+                    thickness: '8 mil',
+                    material: 'Polyurethane',
+                    warranty: '5 Years',
+                    coverage: 'Complete Vehicle',
+                    priceRange: 'Mid-Range'
+                },
+                specifications: {
+                    'Brand': 'SunTek',
+                    'Series': 'Ultra',
+                    'Roll Width': '60 inches (152 cm)',
+                    'Roll Length': '50 feet (15.2 meters)',
+                    'Film Thickness': '8 mil (203 microns)',
+                    'Material': 'Polyurethane',
+                    'Warranty': '5 Years',
+                    'Self-Healing': 'Yes',
+                    'UV Protection': '98%',
+                    'Gloss Level': '95+ GU',
+                    'Application': 'Professional Installation'
+                },
+                pdfUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+                pdfName: 'suntek-ultra-ppf-guide.pdf'
+            },
+
+            // WINDOW TINTING FILMS
+            {
+                id: 'tint-3m-crystalline',
+                name: '3M Crystalline Window Tint',
+                nameAr: 'تعتيم نوافذ 3M كرستالين',
+                category: 'window-tinting',
+                categoryName: 'Window Tinting Films',
+                categoryNameAr: 'أفلام تعتيم النوافذ',
+                categoryIcon: 'fas fa-tint',
+                image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: '3M Crystalline series with maximum heat rejection and optical clarity.',
+                descriptionAr: 'سلسلة 3M كرستالين بأقصى طرد للحرارة ووضوح بصري.',
+                features: ['99% UV Rejection', '75% Heat Reduction', 'Optical Clarity', 'Lifetime Warranty', 'Non-Metallic'],
+                rollDetails: {
+                    width: '60" (152 cm)',
+                    length: '100 ft (30.5 m)',
+                    thickness: '2 mil',
+                    material: 'Multi-Layer Nano Technology',
+                    warranty: 'Lifetime',
+                    vltOptions: '40%, 50%, 60%, 70%, 90%',
+                    priceRange: 'Premium'
+                },
+                specifications: {
+                    'Brand': '3M',
+                    'Series': 'Crystalline',
+                    'Roll Width': '60 inches (152 cm)',
+                    'Roll Length': '100 feet (30.5 meters)',
+                    'Film Thickness': '2 mil',
+                    'Material': 'Multi-Layer Nano Technology',
+                    'Warranty': 'Lifetime',
+                    'VLT Options': '40%, 50%, 60%, 70%, 90%',
+                    'UV Rejection': '99%',
+                    'Heat Rejection': '75%',
+                    'Signal Friendly': 'Yes'
+                },
+                pdfUrl: 'https://www.africau.edu/images/default/sample.pdf',
+                pdfName: '3m-crystalline-tint-brochure.pdf'
+            },
+            {
+                id: 'tint-llumar-ctx',
+                name: 'Llumar CTX Ceramic Tint',
+                nameAr: 'تعتيم سيراميك لومار CTX',
+                category: 'window-tinting',
+                categoryName: 'Window Tinting Films',
+                categoryNameAr: 'أفلام تعتيم النوافذ',
+                categoryIcon: 'fas fa-tint',
+                image: 'https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Llumar CTX ceramic window tint with excellent heat rejection and color stability.',
+                descriptionAr: 'تعتيم نوافذ سيراميك لومار CTX مع طرد ممتاز للحرارة واستقرار لوني.',
+                features: ['Ceramic Technology', '65% Heat Rejection', 'Color Stable', '5-Year Warranty', 'No Fading'],
+                rollDetails: {
+                    width: '60" (152 cm)',
+                    length: '100 ft (30.5 m)',
+                    thickness: '1.5 mil',
+                    material: 'Ceramic Nano Technology',
+                    warranty: '5 Years',
+                    vltOptions: '5%, 15%, 25%, 35%, 50%',
+                    priceRange: 'Mid-Range'
+                },
+                specifications: {
+                    'Brand': 'Llumar',
+                    'Series': 'CTX',
+                    'Roll Width': '60 inches (152 cm)',
+                    'Roll Length': '100 feet (30.5 meters)',
+                    'Film Thickness': '1.5 mil',
+                    'Material': 'Ceramic Nano Technology',
+                    'Warranty': '5 Years',
+                    'VLT Options': '5%, 15%, 25%, 35%, 50%',
+                    'UV Rejection': '99%',
+                    'Heat Rejection': '65%',
+                    'Fade Resistance': 'Excellent'
+                },
+                pdfUrl: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+                pdfName: 'llumar-ctx-tint-specifications.pdf'
+            }
+        ];
+
+        // Services Data based on actual business
+        const services = [
+            {
+                id: 'full-vehicle-wrap',
+                name: 'Complete Vehicle Wrapping',
+                nameAr: 'تغليف المركبة الكامل',
+                icon: 'fas fa-car',
+                description: 'Full vehicle wrapping service with premium vinyl materials and professional installation.',
+                descriptionAr: 'خدمة تغليف كاملة للمركبة بمواد فينيل مميزة وتثبيت احترافي.',
+                features: ['Complete Coverage', 'Premium Materials (3M/Avery)', 'Professional Installation', '5-Year Warranty', 'Color Change Options']
+            },
+            {
+                id: 'partial-wrap',
+                name: 'Partial Wrapping & Accents',
+                nameAr: 'تغليف جزئي وتأثيرات',
+                icon: 'fas fa-brush',
+                description: 'Partial wrapping for accents, roofs, mirrors, or specific vehicle parts.',
+                descriptionAr: 'تغليف جزئي للتأثيرات، الأسطح، المرايا، أو أجزاء محددة من المركبة.',
+                features: ['Roof Wrapping', 'Mirror Caps', 'Accent Lines', 'Custom Designs', 'Cost Effective']
+            },
+            {
+                id: 'ppf-installation',
+                name: 'PPF Installation Service',
+                nameAr: 'خدمة تركيب PPF',
+                icon: 'fas fa-shield-alt',
+                description: 'Professional paint protection film installation with self-healing technology.',
+                descriptionAr: 'تركيب احترافي لفيلم حماية الطلاء بتقنية الالتئام الذاتي.',
+                features: ['Full Front PPF', 'Complete Vehicle PPF', 'Self-Healing Technology', '10-Year Warranty', 'Scratch Protection']
+            },
+            {
+                id: 'window-tinting',
+                name: 'Window Tinting Service',
+                nameAr: 'خدمة تعتيم النوافذ',
+                icon: 'fas fa-tint',
+                description: 'Professional window tinting installation with various VLT options and ceramic technology.',
+                descriptionAr: 'تثبيت احترافي لتعتيم النوافذ بخيارات VLT مختلفة وتقنية سيراميك.',
+                features: ['Ceramic Technology', 'Various VLT Options', 'Heat Rejection', 'UV Protection', 'Lifetime Warranty']
+            },
+            {
+                id: 'ceramic-coating',
+                name: 'Ceramic Coating Service',
+                nameAr: 'خدمة طلاء السيراميك',
+                icon: 'fas fa-spray-can',
+                description: 'Premium ceramic coating application for long-lasting protection and shine.',
+                descriptionAr: 'تطبيق طلاء سيراميك مميز لحماية ولمعان طويل الأمد.',
+                features: ['9H Hardness', 'Hydrophobic', 'Chemical Resistance', '5-Year Warranty', 'Gloss Enhancement']
+            }
+            // Note: Removed Detailing Service as requested
+        ];
+
+        // Categories based on actual business
+        const categories = ['vehicle-wrapping', 'paint-protection', 'window-tinting'];
+        const categoryData = [
+            {
+                id: 'vehicle-wrapping',
+                name: 'Vehicle Wrapping Materials',
+                nameAr: 'مواد تغليف المركبات',
+                icon: 'fas fa-palette',
+                description: 'Premium vinyl wraps for color change and vehicle protection'
+            },
+            {
+                id: 'paint-protection',
+                name: 'Paint Protection Films',
+                nameAr: 'أفلام حماية الطلاء',
+                icon: 'fas fa-shield-alt',
+                description: 'Self-healing protective films for vehicle paint'
+            },
+            {
+                id: 'window-tinting',
+                name: 'Window Tinting Films',
+                nameAr: 'أفلام تعتيم النوافذ',
+                icon: 'fas fa-tint',
+                description: 'Heat rejection and UV protection window films'
+            }
+        ];
+
+        // Selected items storage
+        let selectedItems = {
+            products: [],
+            services: []
+        };
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+            
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+        
+        // Language Toggle
+        const langToggle = document.getElementById('langToggle');
+        const langText = langToggle.querySelector('span');
+        const enTexts = document.querySelectorAll('.en-text');
+        const arTexts = document.querySelectorAll('.ar-text');
+        
+        langToggle.addEventListener('click', () => {
+            const isArabic = document.body.classList.toggle('ar');
+            
+            if (isArabic) {
+                langText.textContent = 'AR';
+                enTexts.forEach(el => el.style.display = 'none');
+                arTexts.forEach(el => el.style.display = 'block');
+            } else {
+                langText.textContent = 'EN';
+                enTexts.forEach(el => el.style.display = 'block');
+                arTexts.forEach(el => el.style.display = 'none');
+            }
+            
+            localStorage.setItem('language', isArabic ? 'ar' : 'en');
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Initialize slider
+        let currentSlide = 0;
+        function initSlider() {
+            const slider = document.querySelector('.hero-slider');
+            const dotsContainer = document.getElementById('sliderDots');
+            
+            // Create slides
+            slides.forEach((slide, index) => {
+                const slideElement = document.createElement('div');
+                slideElement.className = `slide ${index === 0 ? 'active' : ''}`;
+                slideElement.style.backgroundImage = `url('${slide.image}')`;
+                slideElement.innerHTML = `
+                    <div class="slide-content">
+                        <h2 class="en-text">${slide.title}</h2>
+                        <h2 class="ar-text" style="display:none;">${slide.titleAr}</h2>
+                        <p class="en-text">${slide.description}</p>
+                        <p class="ar-text" style="display:none;">${slide.descriptionAr}</p>
+                    </div>
+                `;
+                slider.insertBefore(slideElement, dotsContainer);
+                
+                // Create dot
+                const dot = document.createElement('div');
+                dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+                dot.dataset.index = index;
+                dotsContainer.appendChild(dot);
+                
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+            
+            // Add slide controls
+            document.getElementById('prevSlide').addEventListener('click', () => {
+                goToSlide(currentSlide - 1);
+            });
+            
+            document.getElementById('nextSlide').addEventListener('click', () => {
+                goToSlide(currentSlide + 1);
+            });
+            
+            // Auto slide every 5 seconds
+            setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000);
+        }
+        
+        function goToSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            // Wrap around
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            
+            // Update current slide
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            currentSlide = index;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        // Load Instagram gallery
+        function loadInstagramGallery() {
+            const instagramContainer = document.getElementById('instagramPosts');
+            
+            instagramPosts.forEach((post, index) => {
+                const postElement = document.createElement('div');
+                postElement.className = `instagram-post fade-in ${index > 0 ? 'delay-' + (index % 3 + 1) : ''}`;
+                
+                postElement.innerHTML = `
+                    <img src="${post.image}" alt="${post.title}" loading="lazy" 
+                         onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    <div class="instagram-overlay">
+                        <h4 class="en-text">${post.title}</h4>
+                        <h4 class="ar-text" style="display:none;">${post.titleAr}</h4>
+                        <p class="en-text">${post.description}</p>
+                        <p class="ar-text" style="display:none;">${post.descriptionAr}</p>
+                    </div>
+                    <a href="https://www.instagram.com/foxprotection/?hl=en" target="_blank" class="instagram-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                `;
+                instagramContainer.appendChild(postElement);
+            });
+        }
+        
+        // Load YouTube videos
+        function loadYouTubeVideos() {
+            const youtubeContainer = document.getElementById('youtubeVideos');
+            
+            youtubeVideos.forEach((video, index) => {
+                const videoElement = document.createElement('div');
+                videoElement.className = `youtube-video fade-in ${index > 0 ? 'delay-' + (index % 3 + 1) : ''}`;
+                
+                videoElement.innerHTML = `
+                    <div class="video-frame">
+                        <iframe src="${video.embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h4 class="en-text">${video.title}</h4>
+                        <h4 class="ar-text" style="display:none;">${video.titleAr}</h4>
+                        <p class="en-text">${video.description}</p>
+                        <p class="ar-text" style="display:none;">${video.descriptionAr}</p>
+                    </div>
+                `;
+                youtubeContainer.appendChild(videoElement);
+            });
+        }
+        
+        // Load categories and products
+        function loadCategories() {
+            const categoryTabs = document.getElementById('categoryTabs');
+            const categoriesContainer = document.getElementById('categoriesContainer');
+            
+            // Create category tabs
+            categoryData.forEach((category, index) => {
+                const tab = document.createElement('button');
+                tab.className = `category-tab ${index === 0 ? 'active' : ''}`;
+                tab.dataset.category = category.id;
+                tab.innerHTML = `
+                    <i class="${category.icon}"></i>
+                    <span class="en-text">${category.name}</span>
+                    <span class="ar-text" style="display:none;">${category.nameAr}</span>
+                `;
+                categoryTabs.appendChild(tab);
+                
+                // Create category section
+                const categorySection = document.createElement('div');
+                categorySection.className = `category-section ${index === 0 ? 'active' : ''}`;
+                categorySection.id = `category-${category.id}`;
+                categorySection.innerHTML = `
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="${category.icon}"></i>
+                        </div>
+                        <div>
+                            <h2 class="category-title">
+                                <span class="en-text">${category.name}</span>
+                                <span class="ar-text" style="display:none;">${category.nameAr}</span>
+                            </h2>
+                            <p class="category-description">
+                                <span class="en-text">${category.description}</span>
+                                <span class="ar-text" style="display:none;">${getArabicDescription(category.id)}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="products-grid" id="products-${category.id}">
+                        <!-- Products will be loaded here -->
+                    </div>
+                `;
+                categoriesContainer.appendChild(categorySection);
+            });
+            
+            // Load products for each category
+            categoryData.forEach(category => {
+                loadCategoryProducts(category.id);
+            });
+            
+            // Add event listeners to category tabs
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Update active tab
+                    document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Show selected category
+                    const categoryId = tab.dataset.category;
+                    document.querySelectorAll('.category-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    const targetSection = document.getElementById(`category-${categoryId}`);
+                    targetSection.classList.add('active');
+                    
+                    // Scroll to category with offset
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+        
+        function getArabicDescription(categoryId) {
+            const descriptions = {
+                'vehicle-wrapping': 'لفات فينيل مميزة لتغيير اللون وحماية المركبة',
+                'paint-protection': 'أفلام واقية ذاتية الالتئام لطلاء المركبة',
+                'window-tinting': 'أفلام نوافذ لطرد الحرارة والحماية من الأشعة فوق البنفسجية'
+            };
+            return descriptions[categoryId] || 'منتجات احترافية';
+        }
+        
+        // Load products for a specific category
+        function loadCategoryProducts(categoryId) {
+            const categoryProducts = products.filter(product => product.category === categoryId);
+            const productsGrid = document.getElementById(`products-${categoryId}`);
+            
+            categoryProducts.forEach((product, index) => {
+                const productCard = document.createElement('div');
+                productCard.className = `product-card fade-in ${index > 0 ? 'delay-' + (index % 3 + 1) : ''}`;
+                
+                // Add service badge
+                const serviceBadge = `<div class="service-badge">${product.category === 'vehicle-wrapping' ? 'Premium Wrap' : product.category === 'paint-protection' ? 'PPF Protection' : 'Window Tint'}</div>`;
+                
+                // Generate roll specifications
+                const rollSpecsHtml = product.rollDetails ? `
+                    <div class="roll-specs-container">
+                        <div class="spec-section-title">
+                            <i class="fas fa-ruler-combined"></i>
+                            <span class="en-text">Roll Specifications</span>
+                            <span class="ar-text" style="display:none;">مواصفات اللفة</span>
+                        </div>
+                        <div class="roll-specs-grid">
+                            <div class="roll-spec-card">
+                                <span class="roll-spec-label en-text">Width</span>
+                                <span class="roll-spec-label ar-text" style="display:none;">العرض</span>
+                                <span class="roll-spec-value">${product.rollDetails.width}</span>
+                            </div>
+                            <div class="roll-spec-card">
+                                <span class="roll-spec-label en-text">Length</span>
+                                <span class="roll-spec-label ar-text" style="display:none;">الطول</span>
+                                <span class="roll-spec-value">${product.rollDetails.length}</span>
+                            </div>
+                            <div class="roll-spec-card">
+                                <span class="roll-spec-label en-text">Thickness</span>
+                                <span class="roll-spec-label ar-text" style="display:none;">السماكة</span>
+                                <span class="roll-spec-value">${product.rollDetails.thickness}</span>
+                            </div>
+                            <div class="roll-spec-card">
+                                <span class="roll-spec-label en-text">Warranty</span>
+                                <span class="roll-spec-label ar-text" style="display:none;">الضمان</span>
+                                <span class="roll-spec-value">${product.rollDetails.warranty}</span>
+                            </div>
+                        </div>
+                    </div>
+                ` : '';
+                
+                // Generate specifications table
+                const specsHtml = product.specifications ? `
+                    <div class="product-specs">
+                        <div class="spec-title">
+                            <i class="fas fa-info-circle"></i>
+                            <span class="en-text">Technical Specifications</span>
+                            <span class="ar-text" style="display:none;">المواصفات الفنية</span>
+                        </div>
+                        <div class="spec-grid">
+                            ${Object.entries(product.specifications).map(([key, value]) => `
+                                <div class="spec-item">
+                                    <span class="spec-label en-text">${key}</span>
+                                    <span class="spec-label ar-text" style="display:none;">${getArabicSpecKey(key)}</span>
+                                    <span class="spec-value">${value}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : '';
+                
+                // Generate features list
+                const featuresHtml = product.features ? `
+                    <div class="product-features">
+                        <ul>
+                            ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : '';
+                
+                productCard.innerHTML = `
+                    ${serviceBadge}
+                    <input type="checkbox" class="selection-checkbox" data-type="product" data-id="${product.id}" data-name="${product.name}" data-name-ar="${product.nameAr}">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy" 
+                             onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                        <div class="download-badge" data-pdf="${product.pdfUrl}" data-name="${product.pdfName}">
+                            <i class="fas fa-download"></i>
+                            <span class="en-text">Download Details</span>
+                            <span class="ar-text" style="display:none;">تحميل التفاصيل</span>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title en-text">${product.name}</h3>
+                        <h3 class="product-title ar-text" style="display:none;">${product.nameAr}</h3>
+                        <p class="product-description en-text">${product.description}</p>
+                        <p class="product-description ar-text" style="display:none;">${product.descriptionAr}</p>
+                        
+                        ${rollSpecsHtml}
+                        ${specsHtml}
+                        ${featuresHtml}
+                        
+                        <div class="contact-options">
+                            <button class="contact-btn whatsapp-btn product-contact" data-name="${product.name}" data-name-ar="${product.nameAr}">
+                                <i class="fab fa-whatsapp"></i>
+                                <span class="en-text">WhatsApp</span>
+                                <span class="ar-text" style="display:none;">واتساب</span>
+                            </button>
+                            <button class="contact-btn email-btn product-contact" data-name="${product.name}" data-name-ar="${product.nameAr}">
+                                <i class="fas fa-envelope"></i>
+                                <span class="en-text">Email</span>
+                                <span class="ar-text" style="display:none;">بريد</span>
+                            </button>
+                            <button class="contact-btn call-btn product-contact" data-name="${product.name}" data-name-ar="${product.nameAr}">
+                                <i class="fas fa-phone"></i>
+                                <span class="en-text">Call</span>
+                                <span class="ar-text" style="display:none;">اتصال</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                productsGrid.appendChild(productCard);
+            });
+        }
+        
+        // Helper function for Arabic specification keys
+        function getArabicSpecKey(key) {
+            const arabicMap = {
+                'Brand': 'العلامة التجارية',
+                'Series': 'السلسلة',
+                'Roll Width': 'عرض اللفة',
+                'Roll Length': 'طول اللفة',
+                'Film Thickness': 'سمك الفيلم',
+                'Material': 'المادة',
+                'Warranty': 'الضمان',
+                'Finish Options': 'خيارات التشطيب',
+                'Color Options': 'خيارات الألوان',
+                'Installation': 'التثبيت',
+                'Self-Healing': 'الالتئام الذاتي',
+                'UV Protection': 'الحماية من الأشعة فوق البنفسجية',
+                'Hydrophobic': 'طارد للماء',
+                'Gloss Retention': 'احتفاظ باللمعان',
+                'Conformability': 'القدرة على التوافق',
+                'Type': 'النوع',
+                'Application': 'التطبيق',
+                'Maintenance': 'الصيانة',
+                'VLT Options': 'خيارات VLT',
+                'UV Rejection': 'طرد الأشعة فوق البنفسجية',
+                'Heat Rejection': 'طرد الحرارة',
+                'Signal Friendly': 'ملائم للإشارة',
+                'Fade Resistance': 'مقاومة التلاشي',
+                'Gloss Level': 'مستوى اللمعان'
+            };
+            return arabicMap[key] || key;
+        }
+        
+        // Load services
+        function loadServices() {
+            const servicesGrid = document.getElementById('servicesGrid');
+            
+            services.forEach((service, index) => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = `service-card fade-in ${index > 0 ? 'delay-' + (index % 3 + 1) : ''}`;
+                
+                // Generate features list
+                const featuresHtml = service.features ? `
+                    <div class="product-features">
+                        <ul>
+                            ${service.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : '';
+                
+                serviceCard.innerHTML = `
+                    <input type="checkbox" class="service-checkbox" data-type="service" data-id="${service.id}" data-name="${service.name}" data-name-ar="${service.nameAr}">
+                    <div class="service-icon">
+                        <i class="${service.icon}"></i>
+                    </div>
+                    <h3 class="service-title en-text">${service.name}</h3>
+                    <h3 class="service-title ar-text" style="display:none;">${service.nameAr}</h3>
+                    <p class="en-text">${service.description}</p>
+                    <p class="ar-text" style="display:none;">${service.descriptionAr}</p>
+                    ${featuresHtml}
+                    <div class="contact-options" style="margin-top: 20px;">
+                        <button class="contact-btn whatsapp-btn service-contact" data-name="${service.name}" data-name-ar="${service.nameAr}">
+                            <i class="fab fa-whatsapp"></i> 
+                            <span class="en-text">WhatsApp</span>
+                            <span class="ar-text" style="display:none;">واتساب</span>
+                        </button>
+                    </div>
+                `;
+                servicesGrid.appendChild(serviceCard);
+            });
+        }
+        
+        // Update selection summary
+        function updateSelectionSummary() {
+            const totalItems = selectedItems.products.length + selectedItems.services.length;
+            const summary = document.getElementById('selectionSummary');
+            const countElement = document.getElementById('selectedCount');
+            const countElementAr = document.getElementById('selectedCountAr');
+            
+            countElement.textContent = totalItems;
+            countElementAr.textContent = totalItems;
+            
+            if (totalItems > 0) {
+                summary.classList.add('active');
+            } else {
+                summary.classList.remove('active');
+            }
+        }
+        
+        // Contact functions
+        function contactViaWhatsApp(name, nameAr, type = 'product') {
+            const isArabic = document.body.classList.contains('ar');
+            const itemName = isArabic ? nameAr : name;
+            
+            let message = `Hello Fox Protection,\n\nI'm interested in your ${type}: ${itemName}\n\n`;
+            
+            // Add all selected items if any
+            const totalSelected = selectedItems.products.length + selectedItems.services.length;
+            if (totalSelected > 0) {
+                message += '\nMy Selection:\n';
+                
+                if (selectedItems.products.length > 0) {
+                    message += '\nProducts:\n';
+                    selectedItems.products.forEach((product, index) => {
+                        const productName = isArabic ? product.nameAr : product.name;
+                        message += `${index + 1}. ${productName}\n`;
+                    });
+                }
+                
+                if (selectedItems.services.length > 0) {
+                    message += '\nServices:\n';
+                    selectedItems.services.forEach((service, index) => {
+                        const serviceName = isArabic ? service.nameAr : service.name;
+                        message += `${index + 1}. ${serviceName}\n`;
+                    });
+                }
+                
+                message += `\nTotal Items: ${totalSelected}`;
+            }
+            
+            message += '\n\nPlease contact me with details and pricing.\nThank you!';
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/96566216681?text=${encodedMessage}`, '_blank');
+        }
+        
+        function contactViaEmail(name, nameAr) {
+            const isArabic = document.body.classList.contains('ar');
+            const itemName = isArabic ? nameAr : name;
+            const subject = encodeURIComponent(`Inquiry about: ${itemName}`);
+            
+            let body = `Hello Fox Protection,\n\nI would like more information about: ${itemName}\n\n`;
+            
+            // Add all selected items if any
+            const totalSelected = selectedItems.products.length + selectedItems.services.length;
+            if (totalSelected > 0) {
+                body += 'My Selection:\n';
+                
+                if (selectedItems.products.length > 0) {
+                    body += '\nProducts:\n';
+                    selectedItems.products.forEach((product, index) => {
+                        const productName = isArabic ? product.nameAr : product.name;
+                        body += `${index + 1}. ${productName}\n`;
+                    });
+                }
+                
+                if (selectedItems.services.length > 0) {
+                    body += '\nServices:\n';
+                    selectedItems.services.forEach((service, index) => {
+                        const serviceName = isArabic ? service.nameAr : service.name;
+                        body += `${index + 1}. ${serviceName}\n`;
+                    });
+                }
+                
+                body += `\nTotal Items: ${totalSelected}\n`;
+            }
+            
+            body += '\nPlease contact me with details and pricing.\n\nThank you!';
+            
+            const encodedBody = encodeURIComponent(body);
+            window.location.href = `mailto:info@foxprotectionkw.com?subject=${subject}&body=${encodedBody}`;
+        }
+        
+        function contactViaCall() {
+            window.location.href = 'tel:+96566216681';
+        }
+        
+        // PDF download function
+        function downloadPDF(pdfUrl, pdfName) {
+            if (pdfUrl && pdfUrl !== '#') {
+                // Create a temporary link element
+                const link = document.createElement('a');
+                link.href = pdfUrl;
+                link.download = pdfName || 'product-details.pdf';
+                link.target = '_blank';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                showNotification('PDF download started!', 'success');
+            } else {
+                // Show message if no PDF available
+                const isArabic = document.body.classList.contains('ar');
+                const message = isArabic ? 'سيتوفر ملف PDF قريبًا' : 'PDF will be available soon!';
+                showNotification(message, 'info');
+            }
+        }
+        
+        // Show notification
+        function showNotification(message, type) {
+            // Remove existing notification
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                right: 30px;
+                background: ${type === 'success' ? '#2ecc71' : type === 'info' ? '#3498db' : '#e74c3c'};
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 1002;
+                animation: slideIn 0.3s ease;
+                max-width: 250px;
+                font-weight: 500;
+                font-size: 0.9rem;
+            `;
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 3000);
+        }
+        
+        // Initialize Google Maps
+        function initMap() {
+            // Al-Rai, Mohammad ben Qasem Area coordinates
+            const location = { lat: 29.3106443, lng: 47.9335372 };
+            
+            const map = new google.maps.Map(document.getElementById("googleMap"), {
+                zoom: 16,
+                center: location,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: [
+                    {
+                        featureType: "all",
+                        elementType: "labels.text.fill",
+                        stylers: [{ color: "#ffffff" }]
+                    },
+                    {
+                        featureType: "all",
+                        elementType: "labels.text.stroke",
+                        stylers: [{ color: "#000000" }, { weight: 2 }]
+                    },
+                    {
+                        featureType: "all",
+                        elementType: "labels.icon",
+                        stylers: [{ visibility: "off" }]
+                    },
+                    {
+                        featureType: "road",
+                        elementType: "geometry",
+                        stylers: [{ color: "#1a1a1a" }]
+                    },
+                    {
+                        featureType: "landscape",
+                        elementType: "geometry",
+                        stylers: [{ color: "#2c2c2c" }]
+                    }
+                ]
+            });
+            
+            // Add marker
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: "Fox Protection - Al-Rai, Mohammad ben Qasem Area",
+                icon: {
+                    url: "https://maps.google.com/mapfiles/ms/icons/orange-dot.png"
+                }
+            });
+            
+            // Add info window
+            const infoWindow = new google.maps.InfoWindow({
+                content: `
+                    <div style="color: #333; padding: 10px;">
+                        <h3 style="margin: 0 0 10px 0; color: #ff8c42;">Fox Protection</h3>
+                        <p style="margin: 0 0 5px 0;"><strong>Address:</strong> Al-Rai, Mohammad ben Qasem Area</p>
+                        <p style="margin: 0 0 5px 0;"><strong>Phone:</strong> +965 6621 6681</p>
+                        <p style="margin: 0 0 5px 0;"><strong>WhatsApp:</strong> +965 6621 6681</p>
+                        <p style="margin: 0;"><strong>Hours:</strong> Sat-Thu: 8AM-7PM, Fri: 10AM-5PM</p>
+                    </div>
+                `
+            });
+            
+            marker.addListener("click", () => {
+                infoWindow.open(map, marker);
+            });
+            
+            // Open info window by default
+            infoWindow.open(map, marker);
+            
+            // Remove placeholder
+            const placeholder = document.querySelector('#googleMap .map-placeholder');
+            if (placeholder) {
+                placeholder.style.display = 'none';
+            }
+        }
+        
+        // Make initMap globally available
+        window.initMap = initMap;
+        
+        function openGoogleMaps() {
+            const url = "https://www.google.com/maps/dir//Mohammad+ben+qasem,+Al-rai/@29.3361559,48.0109383,3070m/data=!3m2!1e3!4b1!4m8!4m7!1m0!1m5!1m1!1s0x3fcf9a906ca3793b:0x75f7495fc03c6082!2m2!1d47.9335372!2d29.3106443!5m1!1e1?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D";
+            window.open(url, '_blank');
+        }
+        
+        // Event Delegation for all buttons
+        document.addEventListener('click', function(e) {
+            // Checkbox selection
+            if (e.target.classList.contains('selection-checkbox') || e.target.classList.contains('service-checkbox')) {
+                const checkbox = e.target;
+                const type = checkbox.dataset.type;
+                const id = checkbox.dataset.id;
+                const name = checkbox.dataset.name;
+                const nameAr = checkbox.dataset.nameAr;
+                
+                if (checkbox.checked) {
+                    // Add to selection
+                    if (type === 'product') {
+                        selectedItems.products.push({ id, name, nameAr });
+                    } else {
+                        selectedItems.services.push({ id, name, nameAr });
+                    }
+                } else {
+                    // Remove from selection
+                    if (type === 'product') {
+                        selectedItems.products = selectedItems.products.filter(item => item.id !== id);
+                    } else {
+                        selectedItems.services = selectedItems.services.filter(item => item.id !== id);
+                    }
+                }
+                
+                updateSelectionSummary();
+            }
+            
+            // Product contact buttons
+            if (e.target.closest('.product-contact')) {
+                const button = e.target.closest('.product-contact');
+                const name = button.dataset.name;
+                const nameAr = button.dataset.nameAr;
+                
+                if (button.classList.contains('whatsapp-btn')) {
+                    contactViaWhatsApp(name, nameAr, 'product');
+                } else if (button.classList.contains('email-btn')) {
+                    contactViaEmail(name, nameAr);
+                } else if (button.classList.contains('call-btn')) {
+                    contactViaCall();
+                }
+            }
+            
+            // Service contact buttons
+            if (e.target.closest('.service-contact')) {
+                const button = e.target.closest('.service-contact');
+                const name = button.dataset.name;
+                const nameAr = button.dataset.nameAr;
+                
+                if (button.classList.contains('whatsapp-btn')) {
+                    contactViaWhatsApp(name, nameAr, 'service');
+                }
+            }
+            
+            // Download PDF buttons
+            if (e.target.closest('.download-badge')) {
+                const badge = e.target.closest('.download-badge');
+                const pdfUrl = badge.dataset.pdf;
+                const pdfName = badge.dataset.name;
+                downloadPDF(pdfUrl, pdfName);
+            }
+            
+            // Contact section buttons
+            if (e.target.id === 'callBtn' || e.target.closest('#callBtn')) {
+                contactViaCall();
+            }
+            
+            if (e.target.id === 'emailBtn' || e.target.closest('#emailBtn')) {
+                const isArabic = document.body.classList.contains('ar');
+                const subject = isArabic ? 'استفسار عن فوكس بروتكشن' : 'Inquiry about Fox Protection';
+                let body = isArabic ? 
+                    'مرحبًا فوكس بروتكشن،\n\nأود الحصول على معلومات عن خدمات تغليف وحماية المركبات لديكم.\n\n' :
+                    'Hello Fox Protection,\n\nI would like information about your vehicle wrapping and protection services.\n\n';
+                
+                // Add all selected items if any
+                const totalSelected = selectedItems.products.length + selectedItems.services.length;
+                if (totalSelected > 0) {
+                    if (isArabic) {
+                        body += 'اختياري:\n';
+                        
+                        if (selectedItems.products.length > 0) {
+                            body += '\nالمنتجات:\n';
+                            selectedItems.products.forEach((product, index) => {
+                                body += `${index + 1}. ${product.nameAr}\n`;
+                            });
+                        }
+                        
+                        if (selectedItems.services.length > 0) {
+                            body += '\nالخدمات:\n';
+                            selectedItems.services.forEach((service, index) => {
+                                body += `${index + 1}. ${service.nameAr}\n`;
+                            });
+                        }
+                        
+                        body += `\nإجمالي العناصر: ${totalSelected}\n`;
+                    } else {
+                        body += 'My Selection:\n';
+                        
+                        if (selectedItems.products.length > 0) {
+                            body += '\nProducts:\n';
+                            selectedItems.products.forEach((product, index) => {
+                                body += `${index + 1}. ${product.name}\n`;
+                            });
+                        }
+                        
+                        if (selectedItems.services.length > 0) {
+                            body += '\nServices:\n';
+                            selectedItems.services.forEach((service, index) => {
+                                body += `${index + 1}. ${service.name}\n`;
+                            });
+                        }
+                        
+                        body += `\nTotal Items: ${totalSelected}\n`;
+                    }
+                }
+                
+                body += isArabic ? 
+                    '\nيرجى التواصل معي بالتفاصيل والأسعار.\n\nشكرًا!' :
+                    '\nPlease contact me with details and pricing.\n\nThank you!';
+                
+                const encodedBody = encodeURIComponent(body);
+                window.location.href = `mailto:info@foxprotectionkw.com?subject=${subject}&body=${encodedBody}`;
+            }
+            
+            if (e.target.id === 'whatsappBtn' || e.target.closest('#whatsappBtn')) {
+                const isArabic = document.body.classList.contains('ar');
+                let message = isArabic ? 
+                    'مرحبًا فوكس بروتكشن، أود الحصول على معلومات عن خدمات تغليف وحماية المركبات لديكم.\n\n' :
+                    'Hello Fox Protection, I would like information about your vehicle wrapping and protection services.\n\n';
+                
+                // Add all selected items if any
+                const totalSelected = selectedItems.products.length + selectedItems.services.length;
+                if (totalSelected > 0) {
+                    if (isArabic) {
+                        message += 'اختياري:\n';
+                        
+                        if (selectedItems.products.length > 0) {
+                            message += '\nالمنتجات:\n';
+                            selectedItems.products.forEach((product, index) => {
+                                message += `${index + 1}. ${product.nameAr}\n`;
+                            });
+                        }
+                        
+                        if (selectedItems.services.length > 0) {
+                            message += '\nالخدمات:\n';
+                            selectedItems.services.forEach((service, index) => {
+                                message += `${index + 1}. ${service.nameAr}\n`;
+                            });
+                        }
+                        
+                        message += `\nإجمالي العناصر: ${totalSelected}`;
+                    } else {
+                        message += 'My Selection:\n';
+                        
+                        if (selectedItems.products.length > 0) {
+                            message += '\nProducts:\n';
+                            selectedItems.products.forEach((product, index) => {
+                                message += `${index + 1}. ${product.name}\n`;
+                            });
+                        }
+                        
+                        if (selectedItems.services.length > 0) {
+                            message += '\nServices:\n';
+                            selectedItems.services.forEach((service, index) => {
+                                message += `${index + 1}. ${service.name}\n`;
+                            });
+                        }
+                        
+                        message += `\nTotal Items: ${totalSelected}`;
+                    }
+                }
+                
+                message += isArabic ? 
+                    '\n\nيرجى التواصل معي بالتفاصيل والأسعار.\nشكرًا!' :
+                    '\n\nPlease contact me with details and pricing.\nThank you!';
+                
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/96566216681?text=${encodedMessage}`, '_blank');
+            }
+            
+            // Clear selection button
+            if (e.target.id === 'clearSelection' || e.target.closest('#clearSelection')) {
+                selectedItems.products = [];
+                selectedItems.services = [];
+                
+                // Uncheck all checkboxes
+                document.querySelectorAll('.selection-checkbox, .service-checkbox').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                
+                updateSelectionSummary();
+                showNotification('Selection cleared!', 'info');
+            }
+            
+            // Send WhatsApp summary button
+            if (e.target.id === 'sendWhatsAppSummary' || e.target.closest('#sendWhatsAppSummary')) {
+                const totalSelected = selectedItems.products.length + selectedItems.services.length;
+                const isArabic = document.body.classList.contains('ar');
+                
+                if (totalSelected === 0) {
+                    const message = isArabic ? 'يرجى اختيار عناصر أولاً' : 'Please select items first';
+                    showNotification(message, 'info');
+                    return;
+                }
+                
+                let message = isArabic ? 
+                    'مرحبًا فوكس بروتكشن،\n\nأود الحصول على معلومات عن العناصر التالية:\n\n' :
+                    'Hello Fox Protection,\n\nI would like information about the following items:\n\n';
+                
+                if (selectedItems.products.length > 0) {
+                    message += isArabic ? 'المنتجات:\n' : 'Products:\n';
+                    selectedItems.products.forEach((product, index) => {
+                        const productName = isArabic ? product.nameAr : product.name;
+                        message += `${index + 1}. ${productName}\n`;
+                    });
+                    message += '\n';
+                }
+                
+                if (selectedItems.services.length > 0) {
+                    message += isArabic ? 'الخدمات:\n' : 'Services:\n';
+                    selectedItems.services.forEach((service, index) => {
+                        const serviceName = isArabic ? service.nameAr : service.name;
+                        message += `${index + 1}. ${serviceName}\n`;
+                    });
+                    message += '\n';
+                }
+                
+                message += isArabic ? 
+                    `إجمالي العناصر: ${totalSelected}\n\nيرجى التواصل معي بالتفاصيل والأسعار.\nشكرًا!` :
+                    `Total Items: ${totalSelected}\n\nPlease contact me with details and pricing.\nThank you!`;
+                
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/96566216681?text=${encodedMessage}`, '_blank');
+            }
+        });
+        
+        // Load saved preferences
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            
+            // Load language
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage === 'ar') {
+                document.body.classList.add('ar');
+                langText.textContent = 'AR';
+                enTexts.forEach(el => el.style.display = 'none');
+                arTexts.forEach(el => el.style.display = 'block');
+            }
+            
+            // Initialize slider
+            initSlider();
+            
+            // Load categories, products, services, and galleries
+            loadCategories();
+            loadServices();
+            loadInstagramGallery();
+            loadYouTubeVideos();
+        });
+        
+        // WhatsApp button animation
+        const whatsappBtn = document.querySelector('.whatsapp-float');
+        if (whatsappBtn) {
+            whatsappBtn.addEventListener('mouseenter', () => {
+                whatsappBtn.style.animation = 'none';
+                setTimeout(() => {
+                    whatsappBtn.style.animation = 'float 6s ease-in-out infinite';
+                }, 10);
+            });
+        }
+        
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const scrollProgress = document.getElementById('scrollProgress');
+            if (scrollProgress) {
+                scrollProgress.style.width = scrolled + '%';
+            }
+        });
+        
+        // Add animation keyframes for notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Google Maps error handling
+        window.gm_authFailure = function() {
+            const mapContainer = document.getElementById('googleMap');
+            if (mapContainer) {
+                mapContainer.innerHTML = `
+                    <div class="map-placeholder">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p class="en-text">Unable to load Google Maps. Please try again later.</p>
+                        <p class="ar-text" style="display:none;">تعذر تحميل خرائط جوجل. يرجى المحاولة مرة أخرى لاحقًا.</p>
+                        <button onclick="openGoogleMaps()" style="margin-top: 15px; padding: 10px 20px; background: var(--secondary-light); color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            <i class="fas fa-external-link-alt"></i> 
+                            <span class="en-text">Open in Google Maps</span>
+                            <span class="ar-text" style="display:none;">فتح في خرائط جوجل</span>
+                        </button>
+                    </div>
+                `;
+            }
+        };
+    </script>
+</body>
+</html>

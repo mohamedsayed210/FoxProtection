@@ -1,0 +1,3025 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fox Protection | Premium Vehicle Security</title>
+    
+    <!-- Favicon for browser tab -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e65c19'/%3E%3Cpath d='M30 40 Q50 20 70 40 Q80 50 75 65 Q70 80 50 85 Q30 80 25 65 Q20 50 30 40' fill='white'/%3E%3Ccircle cx='40' cy='45' r='5' fill='%23333'/%3E%3Ccircle cx='60' cy='45' r='5' fill='%23333'/%3E%3Cpath d='M45 60 Q50 65 55 60' stroke='%23333' stroke-width='2' fill='transparent'/%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e65c19'/%3E%3Cpath d='M30 40 Q50 20 70 40 Q80 50 75 65 Q70 80 50 85 Q30 80 25 65 Q20 50 30 40' fill='white'/%3E%3Ccircle cx='40' cy='45' r='5' fill='%23333'/%3E%3Ccircle cx='60' cy='45' r='5' fill='%23333'/%3E%3Cpath d='M45 60 Q50 65 55 60' stroke='%23333' stroke-width='2' fill='transparent'/%3E%3C/svg%3E">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* RESET AND BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.5s ease, color 0.3s ease;
+        }
+        
+        :root {
+            /* Light Theme - Fox Orange Theme */
+            --primary-light: #0d2840;
+            --secondary-light: #ff8c42;
+            --accent-light: #1e6f5c;
+            --light-light: #f8f9fa;
+            --dark-light: #1a1a1a;
+            --gray-light: #6c757d;
+            --card-light: #ffffff;
+            --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --border-light: rgba(0, 0, 0, 0.05);
+            
+            /* Dark Theme - Fox Dark Theme */
+            --primary-dark: #121212;
+            --secondary-dark: #ff8c42;
+            --accent-dark: #2a9d8f;
+            --light-dark: #1e1e1e;
+            --dark-dark: #f5f5f5;
+            --gray-dark: #b0b0b0;
+            --card-dark: #2d2d2d;
+            --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --border-dark: rgba(255, 255, 255, 0.05);
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-light);
+            background-color: var(--light-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        body.dark-mode {
+            color: var(--dark-dark);
+            background-color: var(--primary-dark);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* MAIN CONTENT WRAPPER */
+        .main-content {
+            flex: 1;
+        }
+        
+        /* Fixed Header Controls */
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: auto;
+        }
+        
+        .theme-toggle, .lang-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .theme-toggle:hover, .lang-toggle:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .dark-mode .theme-toggle, .dark-mode .lang-toggle {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--dark-dark);
+        }
+        
+        .dark-mode .theme-toggle:hover, .dark-mode .lang-toggle:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .lang-toggle span {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            animation: float 6s ease-in-out infinite;
+            overflow: hidden;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-float::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+        
+        .whatsapp-float:hover::before {
+            transform: scale(1.5);
+        }
+        
+        .whatsapp-text {
+            font-size: 0.7rem;
+            margin-top: 2px;
+            font-weight: 600;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* Selection Summary Bar */
+        .selection-summary {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--secondary-light);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .selection-summary.active {
+            transform: translateY(0);
+        }
+        
+        .dark-mode .selection-summary {
+            background: var(--secondary-dark);
+        }
+        
+        .selected-items-count {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .send-whatsapp-summary {
+            background: #25d366;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .send-whatsapp-summary:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+        }
+        
+        .clear-selection {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .clear-selection:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: var(--primary-light);
+            color: white;
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-mode header {
+            background-color: var(--light-dark);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.2rem;
+            color: var(--secondary-light);
+            background: rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .logo:hover .logo-icon::after {
+            animation: shine 1.5s ease;
+        }
+        
+        @keyframes shine {
+            100% { transform: translateX(100%); }
+        }
+        
+        .dark-mode .logo-icon {
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, var(--secondary-light), #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .dark-mode .logo-text h1 {
+            background: linear-gradient(to right, var(--secondary-dark), #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .logo-text p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode nav a {
+            color: var(--dark-dark);
+        }
+        
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            background: var(--secondary-light);
+            bottom: 0;
+            left: 0;
+            transition: width 0.4s ease;
+            border-radius: 3px;
+        }
+        
+        .dark-mode nav a:after {
+            background: var(--secondary-dark);
+        }
+        
+        nav a:hover:after, nav a.active:after {
+            width: 100%;
+        }
+        
+        nav a:hover {
+            color: var(--secondary-light);
+        }
+        
+        .dark-mode nav a:hover {
+            color: var(--secondary-dark);
+        }
+        
+        /* Hero Slider */
+        .hero-slider {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            background: var(--primary-light);
+        }
+        
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .slide.active {
+            opacity: 1;
+        }
+        
+        .slide-content {
+            background: rgba(13, 40, 64, 0.85);
+            padding: 3rem;
+            border-radius: 15px;
+            max-width: 800px;
+            margin: 0 2rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .slide h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .slide p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .slider-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 2;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: var(--secondary-light);
+            transform: scale(1.2);
+        }
+        
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slider-arrow:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .slider-arrow.prev {
+            left: 20px;
+        }
+        
+        .slider-arrow.next {
+            right: 20px;
+        }
+        
+        /* Category Tabs */
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 4rem;
+            padding: 0 20px;
+        }
+        
+        .category-tab {
+            padding: 12px 25px;
+            background: var(--card-light);
+            border: 2px solid var(--border-light);
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--primary-light);
+            white-space: nowrap;
+        }
+        
+        .dark-mode .category-tab {
+            background: var(--card-dark);
+            border-color: var(--border-dark);
+            color: var(--dark-dark);
+        }
+        
+        .category-tab:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .dark-mode .category-tab:hover {
+            box-shadow: var(--shadow-dark);
+        }
+        
+        .category-tab.active {
+            background: var(--secondary-light);
+            color: white;
+            border-color: var(--secondary-light);
+        }
+        
+        .dark-mode .category-tab.active {
+            background: var(--secondary-dark);
+            border-color: var(--secondary-dark);
+        }
+        
+        /* Products Section */
+        .products-section, .services-section {
+            padding: 5rem 0;
+            background: var(--light-light);
+        }
+        
+        .dark-mode .products-section, .dark-mode .services-section {
+            background: var(--primary-dark);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-light);
+        }
+        
+        .dark-mode .section-title {
+            color: var(--dark-dark);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 5px;
+            background: linear-gradient(to right, var(--secondary-light), var(--accent-light));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        .dark-mode .section-title h2:after {
+            background: linear-gradient(to right, var(--secondary-dark), var(--accent-dark));
+        }
+        
+        .section-title p {
+            font-size: 1.1rem;
+            color: var(--gray-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .dark-mode .section-title p {
+            color: var(--gray-dark);
+        }
+        
+        /* Category Section */
+        .category-section {
+            margin-bottom: 4rem;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 2rem;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-light);
+        }
+        
+        .dark-mode .category-header {
+            border-bottom-color: var(--border-dark);
+        }
+        
+        .category-icon {
+            font-size: 2rem;
+            color: var(--secondary-light);
+            background: var(--card-light);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .dark-mode .category-icon {
+            background: var(--card-dark);
+            color: var(--secondary-dark);
+        }
+        
+        .category-title {
+            font-size: 2rem;
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+        
+        .dark-mode .category-title {
+            color: var(--dark-dark);
+        }
+        
+        .category-description {
+            color: var(--gray-light);
+            font-size: 1rem;
+            margin-top: 8px;
+        }
+        
+        .dark-mode .category-description {
+            color: var(--gray-dark);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background: var(--card-light);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+        
+        .dark-mode .product-card {
+            background: var(--card-dark);
+            box-shadow: var(--shadow-dark);
+            border-color: var(--border-dark);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .dark-mode .product-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .selection-checkbox {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 2;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            accent-color: var(--secondary-light);
+        }
+        
+        .product-image {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .download-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary-light);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+        }
+        
+        .dark-mode .download-badge {
+            background: var(--secondary-dark);
+        }
+        
+        .download-badge:hover {
+            background: #ff6a00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 140, 66, 0.4);
+        }
+        
+        .product-content {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-light);
+            line-height: 1.3;
+        }
+        
+        .dark-mode .product-title {
+            color: var(--dark-dark);
+        }
+        
+        .product-description {
+            color: var(--gray-light);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            flex: 1;
+        }
+        
+        .dark-mode .product-description {
+            color: var(--gray-dark);
+        }
+        
+        .product-features {
+            margin: 15px 0;
+            padding: 12px;
+            background: var(--border-light);
+            border-radius: 8px;
+        }
+        
+        .dark-mode .product-features {
+            background: var(--border-dark);
+        }
+        
+        .product-features li {
+            list-style: none;
+            margin-bottom: 6px;
+            padding-left: 18px;
+            position: relative;
+            color: var(--gray-light);
+            font-size: 0.9rem;
+        }
+        
+        .dark-mode .product-features li {
+            color: var(--gray-dark);
+        }
+        
+        .product-features li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-light);
+            font-weight: bold;
+        }
+        
+        .dark-mode .product-features li:before {
+            color: var(--secondary-dark);
+        }
+        
+        .contact-options {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+        
+        .contact-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+        
+        .whatsapp-btn {
+            background: #25d366;
+            color: white;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .email-btn {
+            background: #4285f4;
+            color: white;
+        }
+        
+        .email-btn:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(66, 133, 244, 0.3);
+        }
+        
+        .call-btn {
+            background: var(--accent-light);
+            color: white;
+        }
+        
+        .dark-mode .call-btn {
+            background: var(--accent-dark);
+        }
+        
+        .call-btn:hover {
+            background: #1a5c4a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(30, 111, 92, 0.3);
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .service-card {
+            background: var(--card-light);
+            padding: 30px 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--shadow-light);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+        
+        .dark-mode .service-card {
+            background: var(--card-dark);
+            box-shadow: var(--shadow-dark);
+            border-color: var(--border-dark);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark-mode .service-card:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .service-checkbox {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            accent-color: var(--secondary-light);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-light);
+            background: var(--border-light);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+        }
+        
+        .dark-mode .service-icon {
+            background: var(--border-dark);
+            color: var(--secondary-dark);
+        }
+        
+        .service-title {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--primary-light);
+            font-weight: 700;
+        }
+        
+        .dark-mode .service-title {
+            color: var(--dark-dark);
+        }
+        
+        .service-card p {
+            color: var(--gray-light);
+            margin-bottom: 20px;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+        
+        .dark-mode .service-card p {
+            color: var(--gray-dark);
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--card-light);
+            padding: 4rem 0;
+            border-radius: 15px;
+            margin: 3rem auto;
+            max-width: 1000px;
+        }
+        
+        .dark-mode .contact-section {
+            background: var(--card-dark);
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            text-align: center;
+            padding: 25px;
+            background: var(--border-light);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .contact-item {
+            background: var(--border-dark);
+        }
+        
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .contact-icon {
+            font-size: 2.2rem;
+            color: var(--secondary-light);
+            margin-bottom: 15px;
+        }
+        
+        .dark-mode .contact-icon {
+            color: var(--secondary-dark);
+        }
+        
+        .contact-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary-light);
+        }
+        
+        .dark-mode .contact-item h3 {
+            color: var(--dark-dark);
+        }
+        
+        /* Google Maps Section */
+        .map-section {
+            padding: 4rem 0;
+            background: var(--light-light);
+        }
+        
+        .dark-mode .map-section {
+            background: var(--primary-dark);
+        }
+        
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            height: 450px;
+            margin-top: 2rem;
+        }
+        
+        .dark-mode .map-container {
+            box-shadow: var(--shadow-dark);
+        }
+        
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: var(--border-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-light);
+        }
+        
+        .dark-mode .map-placeholder {
+            background: var(--border-dark);
+            color: var(--gray-dark);
+        }
+        
+        .map-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--secondary-light);
+        }
+        
+        .dark-mode .map-placeholder i {
+            color: var(--secondary-dark);
+        }
+        
+        .map-placeholder p {
+            font-size: 1.1rem;
+            text-align: center;
+            max-width: 500px;
+            padding: 0 20px;
+        }
+        
+        /* FIXED: Footer */
+        footer {
+            background-color: #0a1f32;
+            color: white;
+            padding: 5rem 0 2.5rem;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin-top: auto;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+        
+        .dark-mode footer {
+            background-color: #000000;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .footer-section h4 {
+            color: var(--secondary-light);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 12px;
+            font-weight: 800;
+        }
+        
+        .footer-section h4:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            background: var(--accent-light);
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+        
+        .footer-section p {
+            opacity: 0.9;
+            margin-bottom: 1.2rem;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links li {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-light);
+            transform: translateX(8px);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-icons a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary-light);
+            border-radius: 50%;
+            transform: scale(0);
+            transition: transform 0.4s ease;
+        }
+        
+        .social-icons a:hover::before {
+            transform: scale(1);
+        }
+        
+        .social-icons a i {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .social-icons a:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+        
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(to right, var(--secondary-light), var(--accent-light));
+            z-index: 1001;
+            transition: width 0.1s ease;
+        }
+        
+        .dark-mode .scroll-progress {
+            background: linear-gradient(to right, var(--secondary-dark), var(--accent-dark));
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .slide h2 {
+                font-size: 2.5rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-slider {
+                height: 500px;
+            }
+            
+            .slide h2 {
+                font-size: 2.2rem;
+            }
+            
+            .slide-content {
+                padding: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 2.5rem;
+            }
+            
+            .contact-options {
+                flex-direction: column;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .header-controls {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+            
+            nav {
+                order: 2;
+            }
+            
+            nav ul {
+                gap: 1.2rem;
+            }
+            
+            .hero-slider {
+                height: 450px;
+            }
+            
+            .slide h2 {
+                font-size: 1.8rem;
+            }
+            
+            .slide p {
+                font-size: 1rem;
+            }
+            
+            .slide-content {
+                padding: 1.5rem;
+                margin: 0 1rem;
+            }
+            
+            .slider-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
+            
+            .category-tabs {
+                overflow-x: auto;
+                justify-content: flex-start;
+                padding-bottom: 10px;
+            }
+            
+            .category-tab {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .whatsapp-float {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .footer-section h4:after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .footer-links a:hover {
+                transform: translateX(5px);
+            }
+            
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .selection-summary {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+                padding: 15px;
+            }
+            
+            .selected-items-count {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Arabic Support */
+        .ar {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .ar .section-title h2:after {
+            left: unset;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        .ar .footer-section h4:after {
+            left: unset;
+            right: 0;
+        }
+        
+        .ar .footer-links a:hover {
+            transform: translateX(-8px);
+        }
+        
+        .ar .contact-options {
+            flex-direction: row-reverse;
+        }
+        
+        .ar .category-header {
+            text-align: right;
+        }
+        
+        .ar .contact-info {
+            direction: rtl;
+        }
+        
+        .ar .selection-checkbox,
+        .ar .service-checkbox {
+            left: unset;
+            right: 15px;
+        }
+    </style>
+    
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=&v=weekly" async defer></script>
+</head>
+<body class="en">
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Selection Summary Bar -->
+    <div class="selection-summary" id="selectionSummary">
+        <div class="selected-items-count">
+            <span class="en-text">Selected Items: <span id="selectedCount">0</span></span>
+            <span class="ar-text" style="display:none;">العناصر المحددة: <span id="selectedCountAr">0</span></span>
+        </div>
+        <div class="selection-actions">
+            <button class="clear-selection" id="clearSelection">
+                <span class="en-text">Clear All</span>
+                <span class="ar-text" style="display:none;">مسح الكل</span>
+            </button>
+            <button class="send-whatsapp-summary" id="sendWhatsAppSummary">
+                <i class="fab fa-whatsapp"></i>
+                <span class="en-text">Send via WhatsApp</span>
+                <span class="ar-text" style="display:none;">إرسال عبر واتساب</span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/96555433574?text=Hello%20Fox%20Protection%2C%20I%20need%20information%20about%20car%20protection" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <div class="whatsapp-text">Chat</div>
+    </a>
+    
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Fox Protection</h1>
+                    <p>Smart Vehicle Security</p>
+                </div>
+            </div>
+            
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="header-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="lang-toggle" id="langToggle">
+                    <i class="fas fa-globe"></i>
+                    <span>EN</span>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Hero Slider -->
+        <section class="hero-slider" id="home">
+            <!-- Slides will be loaded by JavaScript -->
+            <div class="slider-controls" id="sliderDots"></div>
+            <button class="slider-arrow prev" id="prevSlide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-arrow next" id="nextSlide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </section>
+        
+        <!-- Categories Section -->
+        <section class="products-section" id="categories">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="en-text">Our Protection Categories</h2>
+                    <h2 class="ar-text" style="display:none;">فئات الحماية لدينا</h2>
+                    <p class="en-text">Explore our premium vehicle protection solutions by category</p>
+                    <p class="ar-text" style="display:none;">استكشف حلول حماية المركبات المميزة لدينا حسب الفئة</p>
+                </div>
+                
+                <div class="category-tabs" id="categoryTabs">
+                    <!-- Category tabs will be generated by JavaScript -->
+                </div>
+                
+                <div id="categoriesContainer">
+                    <!-- Category sections will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Services Section -->
+        <section class="services-section" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="en-text">Our Professional Services</h2>
+                    <h2 class="ar-text" style="display:none;">خدماتنا المهنية</h2>
+                    <p class="en-text">Premium installation and maintenance by certified experts</p>
+                    <p class="ar-text" style="display:none;">التثبيت والصيانة المميزة بواسطة خبراء معتمدين</p>
+                </div>
+                
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Services will be loaded by JavaScript -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- Google Maps Location Section -->
+        <section class="map-section" id="location">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="en-text">Our Location</h2>
+                    <h2 class="ar-text" style="display:none;">موقعنا</h2>
+                    <p class="en-text">Visit us at our workshop in Kuwait-Shwaik Industrial Area</p>
+                    <p class="ar-text" style="display:none;">زرنا في ورشتنا في المنطقة الصناعية بالشويخ، الكويت</p>
+                </div>
+                
+                <div class="map-container">
+                    <div id="googleMap" class="map-placeholder">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <p class="en-text">Loading Google Maps...</p>
+                        <p class="ar-text" style="display:none;">جاري تحميل خرائط جوجل...</p>
+                    </div>
+                </div>
+                
+                <div class="contact-info" style="margin-top: 30px;">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3 class="en-text">Address</h3>
+                        <h3 class="ar-text" style="display:none;">العنوان</h3>
+                        <p>Kuwait-Shwaik, Industrial Area</p>
+                        <p class="en-text">Block 1, Street 15, Building 23</p>
+                        <p class="ar-text" style="display:none;">مبنى 23، شارع 15، بلوك 1</p>
+                    </div>
+                    
+                    <div class="contact-item fade-in delay-1">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3 class="en-text">Working Hours</h3>
+                        <h3 class="ar-text" style="display:none;">ساعات العمل</h3>
+                        <p class="en-text">Saturday - Thursday</p>
+                        <p class="ar-text" style="display:none;">السبت - الخميس</p>
+                        <p>8:00 AM - 7:00 PM</p>
+                        <p class="en-text">Friday: 10:00 AM - 5:00 PM</p>
+                        <p class="ar-text" style="display:none;">الجمعة: 10 صباحًا - 5 مساءً</p>
+                    </div>
+                    
+                    <div class="contact-item fade-in delay-2">
+                        <div class="contact-icon">
+                            <i class="fas fa-directions"></i>
+                        </div>
+                        <h3 class="en-text">Get Directions</h3>
+                        <h3 class="ar-text" style="display:none;">احصل على الاتجاهات</h3>
+                        <p class="en-text">Click below to open in Google Maps</p>
+                        <p class="ar-text" style="display:none;">انقر أدناه لفتح في خرائط جوجل</p>
+                        <button class="contact-btn whatsapp-btn" onclick="openGoogleMaps()" style="margin-top: 15px;">
+                            <i class="fas fa-external-link-alt"></i> 
+                            <span class="en-text">Open Maps</span>
+                            <span class="ar-text" style="display:none;">فتح الخرائط</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="products-section" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2 class="en-text">Contact Us</h2>
+                    <h2 class="ar-text" style="display:none;">اتصل بنا</h2>
+                    <p class="en-text">Get in touch for personalized protection solutions</p>
+                    <p class="ar-text" style="display:none;">تواصل معنا للحصول على حلول حماية مخصصة</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 class="en-text">Call Us</h3>
+                        <h3 class="ar-text" style="display:none;">اتصل بنا</h3>
+                        <p>+965 5543 3574</p>
+                        <button class="contact-btn call-btn" id="callBtn" style="margin-top: 15px;">
+                            <i class="fas fa-phone"></i> 
+                            <span class="en-text">Call Now</span>
+                            <span class="ar-text" style="display:none;">اتصل الآن</span>
+                        </button>
+                    </div>
+                    
+                    <div class="contact-item fade-in delay-1">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 class="en-text">Email Us</h3>
+                        <h3 class="ar-text" style="display:none;">راسلنا</h3>
+                        <p>mohamedsayed210@gmail.com</p>
+                        <button class="contact-btn email-btn" id="emailBtn" style="margin-top: 15px;">
+                            <i class="fas fa-envelope"></i> 
+                            <span class="en-text">Send Email</span>
+                            <span class="ar-text" style="display:none;">إرسال بريد</span>
+                        </button>
+                    </div>
+                    
+                    <div class="contact-item fade-in delay-2">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3 class="en-text">WhatsApp</h3>
+                        <h3 class="ar-text" style="display:none;">واتساب</h3>
+                        <p>Chat with our experts</p>
+                        <button class="contact-btn whatsapp-btn" id="whatsappBtn" style="margin-top: 15px;">
+                            <i class="fab fa-whatsapp"></i> 
+                            <span class="en-text">Start Chat</span>
+                            <span class="ar-text" style="display:none;">ابدأ المحادثة</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section fade-in">
+                    <h4 class="en-text">Fox Protection</h4>
+                    <h4 class="ar-text" style="display:none;">فوكس بروتكشن</h4>
+                    <p class="en-text">Leading provider of smart vehicle protection solutions with advanced technology and premium materials.</p>
+                    <p class="ar-text" style="display:none;">المزود الرائد لحلول حماية المركبات الذكية مع تكنولوجيا متطورة ومواد مميزة.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section fade-in delay-1">
+                    <h4 class="en-text">Quick Links</h4>
+                    <h4 class="ar-text" style="display:none;">روابط سريعة</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> <span class="en-text">Home</span><span class="ar-text" style="display:none;">الرئيسية</span></a></li>
+                        <li><a href="#categories"><i class="fas fa-chevron-right"></i> <span class="en-text">Categories</span><span class="ar-text" style="display:none;">الفئات</span></a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> <span class="en-text">Services</span><span class="ar-text" style="display:none;">الخدمات</span></a></li>
+                        <li><a href="#location"><i class="fas fa-chevron-right"></i> <span class="en-text">Location</span><span class="ar-text" style="display:none;">الموقع</span></a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> <span class="en-text">Contact</span><span class="ar-text" style="display:none;">اتصل بنا</span></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section fade-in delay-2">
+                    <h4 class="en-text">Contact Info</h4>
+                    <h4 class="ar-text" style="display:none;">معلومات الاتصال</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> <span class="en-text">Kuwait-Shwaik, Industrial Area</span><span class="ar-text" style="display:none;">الكويت - الشويخ، المنطقة الصناعية</span></a></li>
+                        <li><a href="tel:+96555433574"><i class="fas fa-phone"></i> <span>+965 5543 3574</span></a></li>
+                        <li><a href="mailto:mohamedsayed210@gmail.com"><i class="fas fa-envelope"></i> <span>mohamedsayed210@gmail.com</span></a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> <span class="en-text">Mon-Fri: 8AM-7PM</span><span class="ar-text" style="display:none;">الإثنين-الجمعة: 8ص-7م</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright fade-in delay-3">
+                <p>&copy; 2023 Fox Protection. <span class="en-text">All rights reserved.</span><span class="ar-text" style="display:none;">جميع الحقوق محفوظة.</span></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem;"><span class="en-text">Premium vehicle protection solutions</span><span class="ar-text" style="display:none;">حلول حماية المركبات المميزة</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data for sliders
+        const slides = [
+            {
+                image: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+                title: 'Premium Vehicle Protection',
+                titleAr: 'حماية المركبات المميزة',
+                description: 'Advanced security and coating solutions to keep your vehicle protected and looking perfect.',
+                descriptionAr: 'حلول أمنية وطلاء متطورة للحفاظ على مركبتك محمية وذات مظهر مثالي.'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+                title: 'Ceramic Coating Experts',
+                titleAr: 'خبراء طلاء السيراميك',
+                description: 'Professional ceramic coating with 5-year warranty for lasting protection.',
+                descriptionAr: 'طلاء سيراميك احترافي مع ضمان 5 سنوات لحماية دائمة.'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+                title: 'Paint Protection Films',
+                titleAr: 'أفلام حماية الطلاء',
+                description: 'Self-healing PPF technology to protect against scratches and chips.',
+                descriptionAr: 'تقنية PPF ذاتية الالتئام للحماية من الخدوش والشظايا.'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
+                title: 'Window Tinting Services',
+                titleAr: 'خدمات تعتيم النوافذ',
+                description: 'Premium window tinting for privacy, UV protection, and heat rejection.',
+                descriptionAr: 'تعتيم نوافذ مميز للخصوصية والحماية من الأشعة فوق البنفسجية وطرد الحرارة.'
+            }
+        ];
+
+        // Product Data with Categories
+        const products = [
+            // Exterior Protection (7 items)
+            {
+                id: 'ceramic-coating',
+                name: 'Premium Ceramic Coating',
+                nameAr: 'طلاء سيراميك مميز',
+                category: 'exterior-protection',
+                categoryName: 'Exterior Protection',
+                categoryNameAr: 'حماية خارجية',
+                categoryIcon: 'fas fa-car',
+                image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: '9H hardness ceramic coating with comprehensive 5-year warranty for lasting protection and shine.',
+                descriptionAr: 'طلاء سيراميك بصلابة 9H مع ضمان شامل لمدة 5 سنوات لحماية ولمعان دائم.',
+                features: ['5-Year Warranty', 'UV Protection', 'Chemical Resistance', 'Scratch Resistance', 'Hydrophobic Effect', 'Gloss Enhancement'],
+                pdfUrl: '#',
+                pdfName: 'ceramic-coating-details.pdf'
+            },
+            {
+                id: 'paint-protection',
+                name: 'Paint Protection Film (PPF)',
+                nameAr: 'فيلم حماية الطلاء',
+                category: 'exterior-protection',
+                categoryName: 'Exterior Protection',
+                categoryNameAr: 'حماية خارجية',
+                categoryIcon: 'fas fa-car',
+                image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Self-healing paint protection film with complete vehicle coverage against rock chips and environmental damage.',
+                descriptionAr: 'فيلم حماية الطلاء ذاتي الالتئام مع تغطية كاملة للسيارة ضد شظايا الصخور والأضرار البيئية.',
+                features: ['Self-Healing Technology', 'Full Coverage', 'Rock Chip Protection', 'Environmental Resistance', '10-Year Warranty'],
+                pdfUrl: '#',
+                pdfName: 'paint-protection-details.pdf'
+            },
+            {
+                id: 'scratch-protection',
+                name: 'Complete Scratch Protection',
+                nameAr: 'حماية كاملة من الخدوش',
+                category: 'exterior-protection',
+                categoryName: 'Exterior Protection',
+                categoryNameAr: 'حماية خارجية',
+                categoryIcon: 'fas fa-car',
+                image: 'https://images.unsplash.com/photo-1507136566006-cfc505b114fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Complete scratch protection system covering all vulnerable areas including door edges and handles.',
+                descriptionAr: 'نظام حماية كامل من الخدوش يغطي جميع المناطق المعرضة للخطر بما في ذلك حواف الأبواب والمقابض.',
+                features: ['Door Edge Protection', 'Handle Protection', 'High-Impact Zones', 'Clear Film', 'Easy Maintenance'],
+                pdfUrl: '#',
+                pdfName: 'scratch-protection-details.pdf'
+            },
+            {
+                id: 'headlight-protection',
+                name: 'Headlight Protection Film',
+                nameAr: 'فيلم حماية المصابيح الأمامية',
+                category: 'exterior-protection',
+                categoryName: 'Exterior Protection',
+                categoryNameAr: 'حماية خارجية',
+                categoryIcon: 'fas fa-car',
+                image: 'https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'UV resistant protective film to prevent yellowing, hazing, and cracking of headlights.',
+                descriptionAr: 'فيلم واقي مقاوم للأشعة فوق البنفسجية يمنع اصفرار وضبابية وتشقق المصابيح الأمامية.',
+                features: ['UV Resistance', 'Yellowing Prevention', 'Haze Reduction', 'Impact Protection', 'Optical Clarity'],
+                pdfUrl: '#',
+                pdfName: 'headlight-protection-details.pdf'
+            },
+            {
+                id: 'full-wrap',
+                name: 'Complete Vehicle Wrap',
+                nameAr: 'تغليف كامل للسيارة',
+                category: 'exterior-protection',
+                categoryName: 'Exterior Protection',
+                categoryNameAr: 'حماية خارجية',
+                categoryIcon: 'fas fa-car',
+                image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Complete vehicle wrap with premium vinyl for color change or protective coverage.',
+                descriptionAr: 'تغليف كامل للسيارة بفينيل مميز لتغيير اللون أو التغطية الواقية.',
+                features: ['Full Coverage', 'Color Change Options', 'Protective Layer', 'Custom Designs', 'Premium Materials'],
+                pdfUrl: '#',
+                pdfName: 'full-wrap-details.pdf'
+            },
+            {
+                id: 'glass-coating',
+                name: 'Glass Coating Treatment',
+                nameAr: 'معالجة طلاء الزجاج',
+                category: 'exterior-protection',
+                categoryName: 'Exterior Protection',
+                categoryNameAr: 'حماية خارجية',
+                categoryIcon: 'fas fa-car',
+                image: 'https://images.unsplash.com/photo-1502872364588-894d7d6ddfab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Advanced glass coating for superior water repellency and easier cleaning.',
+                descriptionAr: 'طلاء زجاج متطور لطرد الماء المتفوق وتنظيف أسهل.',
+                features: ['Water Repellency', 'Easy Cleaning', 'UV Protection', 'Anti-Static', 'Long Lasting'],
+                pdfUrl: '#',
+                pdfName: 'glass-coating-details.pdf'
+            },
+            {
+                id: 'trim-protection',
+                name: 'Trim & Plastic Protection',
+                nameAr: 'حافة القطع والحماية البلاستيكية',
+                category: 'exterior-protection',
+                categoryName: 'Exterior Protection',
+                categoryNameAr: 'حماية خارجية',
+                categoryIcon: 'fas fa-car',
+                image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Special protection for plastic trims against fading and cracking.',
+                descriptionAr: 'حماية خاصة للقطع البلاستيكية ضد التلاشي والتشقق.',
+                features: ['UV Protection', 'Anti-Fading', 'Crack Prevention', 'Restores Color', 'Long Lasting'],
+                pdfUrl: '#',
+                pdfName: 'trim-protection-details.pdf'
+            },
+
+            // Window Protection (5 items)
+            {
+                id: 'window-tinting',
+                name: 'Premium Window Tinting',
+                nameAr: 'تعتيم النوافذ المميز',
+                category: 'window-protection',
+                categoryName: 'Window Protection',
+                categoryNameAr: 'حماية النوافذ',
+                categoryIcon: 'fas fa-window-maximize',
+                image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Advanced ceramic window tinting with 99% UV protection and superior heat rejection.',
+                descriptionAr: 'تعتيم نوافذ سيراميك متطور مع حماية 99% من الأشعة فوق البنفسجية وطرد حرارة فائق.',
+                features: ['99% UV Protection', 'Heat Rejection', 'Privacy Enhancement', 'Glare Reduction', 'Legal Compliance'],
+                pdfUrl: '#',
+                pdfName: 'window-tinting-details.pdf'
+            },
+            {
+                id: 'windshield-protection',
+                name: 'Windshield Protection Film',
+                nameAr: 'فيلم حماية الزجاج الأمامي',
+                category: 'window-protection',
+                categoryName: 'Window Protection',
+                categoryNameAr: 'حماية النوافذ',
+                categoryIcon: 'fas fa-window-maximize',
+                image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Protective film for windshield against cracks and chips from road debris.',
+                descriptionAr: 'فيلم واقي للزجاج الأمامي ضد التشققات والشظايا من حطام الطريق.',
+                features: ['Impact Resistance', 'Crack Prevention', 'Optical Clarity', 'Easy Installation', 'Warranty Covered'],
+                pdfUrl: '#',
+                pdfName: 'windshield-protection-details.pdf'
+            },
+            {
+                id: 'rain-repellent',
+                name: 'Rain Repellent Treatment',
+                nameAr: 'معالجة طاردة للمطر',
+                category: 'window-protection',
+                categoryName: 'Window Protection',
+                categoryNameAr: 'حماية النوافذ',
+                categoryIcon: 'fas fa-window-maximize',
+                image: 'https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Hydrophobic treatment for windows that repels water for better visibility in rain.',
+                descriptionAr: 'معالجة كارهة للماء للنوافذ تطرد الماء لرؤية أفضل في المطر.',
+                features: ['Hydrophobic Effect', 'Improved Visibility', 'Reduced Wiper Use', 'Long Lasting', 'Easy Application'],
+                pdfUrl: '#',
+                pdfName: 'rain-repellent-details.pdf'
+            },
+            {
+                id: 'privacy-glass',
+                name: 'Privacy Glass Tinting',
+                nameAr: 'تعتيم زجاج الخصوصية',
+                category: 'window-protection',
+                categoryName: 'Window Protection',
+                categoryNameAr: 'حماية النوافذ',
+                categoryIcon: 'fas fa-window-maximize',
+                image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'High-privacy window tinting for maximum security and discretion.',
+                descriptionAr: 'تعتيم نوافذ عالي الخصوصية لأقصى درجات الأمن والتحفظ.',
+                features: ['Maximum Privacy', 'Security Enhancement', 'Heat Reduction', 'Glare Control', 'Premium Film'],
+                pdfUrl: '#',
+                pdfName: 'privacy-glass-details.pdf'
+            },
+            {
+                id: 'sunroof-tinting',
+                name: 'Sunroof Tinting',
+                nameAr: 'تعتيم فتحة السقف',
+                category: 'window-protection',
+                categoryName: 'Window Protection',
+                categoryNameAr: 'حماية النوافذ',
+                categoryIcon: 'fas fa-window-maximize',
+                image: 'https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Specialized tinting for sunroofs to reduce heat and UV exposure.',
+                descriptionAr: 'تعتيم متخصص لفتحات السقف لتقليل الحرارة والتعرض للأشعة فوق البنفسجية.',
+                features: ['Heat Reduction', 'UV Protection', 'Glare Control', 'Comfort Enhancement', 'Professional Installation'],
+                pdfUrl: '#',
+                pdfName: 'sunroof-tinting-details.pdf'
+            },
+
+            // Interior Protection (6 items)
+            {
+                id: 'interior-protection',
+                name: 'Interior Protection Coating',
+                nameAr: 'طلاء حماية داخلي',
+                category: 'interior-protection',
+                categoryName: 'Interior Protection',
+                categoryNameAr: 'حماية داخلية',
+                categoryIcon: 'fas fa-chair',
+                image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Advanced fabric and leather protection against stains, UV damage, and wear.',
+                descriptionAr: 'حماية متقدمة للقماش والجلد ضد البقع والأضرار الأشعة فوق البنفسجية والتآكل.',
+                features: ['Stain Resistance', 'UV Protection', 'Anti-Wear', 'Spill Protection', 'Odor Prevention'],
+                pdfUrl: '#',
+                pdfName: 'interior-protection-details.pdf'
+            },
+            {
+                id: 'leather-care',
+                name: 'Premium Leather Care',
+                nameAr: 'رعاية الجلد المميزة',
+                category: 'interior-protection',
+                categoryName: 'Interior Protection',
+                categoryNameAr: 'حماية داخلية',
+                categoryIcon: 'fas fa-chair',
+                image: 'https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Specialized treatment for leather seats to prevent cracking and fading.',
+                descriptionAr: 'معالجة متخصصة لمقاعد الجلد لمنع التشقق والتلاشي.',
+                features: ['Crack Prevention', 'Color Preservation', 'Softness Enhancement', 'UV Protection', 'Easy Maintenance'],
+                pdfUrl: '#',
+                pdfName: 'leather-care-details.pdf'
+            },
+            {
+                id: 'fabric-protection',
+                name: 'Fabric Protection',
+                nameAr: 'حماية القماش',
+                category: 'interior-protection',
+                categoryName: 'Interior Protection',
+                categoryNameAr: 'حماية داخلية',
+                categoryIcon: 'fas fa-chair',
+                image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Protective coating for fabric seats against stains and spills.',
+                descriptionAr: 'طلاء واقي لمقاعد القماش ضد البقع والانسكابات.',
+                features: ['Stain Resistance', 'Spill Protection', 'Easy Cleaning', 'Color Protection', 'Odor Control'],
+                pdfUrl: '#',
+                pdfName: 'fabric-protection-details.pdf'
+            },
+            {
+                id: 'dashboard-protection',
+                name: 'Dashboard Protection',
+                nameAr: 'حماية لوحة القيادة',
+                category: 'interior-protection',
+                categoryName: 'Interior Protection',
+                categoryNameAr: 'حماية داخلية',
+                categoryIcon: 'fas fa-chair',
+                image: 'https://images.unsplash.com/photo-1555212697-194d092e3b8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'UV protection treatment for dashboard to prevent fading and cracking.',
+                descriptionAr: 'معالجة للحماية من الأشعة فوق البنفسجية للوحة القيادة لمنع التلاشي والتشقق.',
+                features: ['UV Protection', 'Crack Prevention', 'Glare Reduction', 'Easy Cleaning', 'Long Lasting'],
+                pdfUrl: '#',
+                pdfName: 'dashboard-protection-details.pdf'
+            },
+            {
+                id: 'carpet-protection',
+                name: 'Carpet & Mat Protection',
+                nameAr: 'حماية السجاد والحصائر',
+                category: 'interior-protection',
+                categoryName: 'Interior Protection',
+                categoryNameAr: 'حماية داخلية',
+                categoryIcon: 'fas fa-chair',
+                image: 'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Protective treatment for carpets and mats against stains and wear.',
+                descriptionAr: 'معالجة وقائية للسجاد والحصائر ضد البقع والتآكل.',
+                features: ['Stain Resistance', 'Wear Protection', 'Easy Cleaning', 'Odor Control', 'Water Resistance'],
+                pdfUrl: '#',
+                pdfName: 'carpet-protection-details.pdf'
+            },
+            {
+                id: 'steering-wheel',
+                name: 'Steering Wheel Protection',
+                nameAr: 'حماية عجلة القيادة',
+                category: 'interior-protection',
+                categoryName: 'Interior Protection',
+                categoryNameAr: 'حماية داخلية',
+                categoryIcon: 'fas fa-chair',
+                image: 'https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Special coating for steering wheel to prevent wear and maintain grip.',
+                descriptionAr: 'طلاء خاص لعجلة القيادة لمنع التآكل والحفاظ على القبضة.',
+                features: ['Wear Resistance', 'Grip Enhancement', 'UV Protection', 'Easy Cleaning', 'Anti-Slip'],
+                pdfUrl: '#',
+                pdfName: 'steering-wheel-details.pdf'
+            },
+
+            // Wheel Protection (4 items)
+            {
+                id: 'rim-protection',
+                name: 'Alloy Rim Protection',
+                nameAr: 'حافة حافة العجلات',
+                category: 'wheel-protection',
+                categoryName: 'Wheel Protection',
+                categoryNameAr: 'حافة العجلات',
+                categoryIcon: 'fas fa-tire',
+                image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Specialized protection for alloy rims against curb damage and corrosion.',
+                descriptionAr: 'حماية متخصصة لحافة العجلات ضد أضرار الرصيف والتآكل.',
+                features: ['Curb Damage Protection', 'Corrosion Resistance', 'Brake Dust Resistance', 'Easy Cleaning', 'Gloss Finish'],
+                pdfUrl: '#',
+                pdfName: 'rim-protection-details.pdf'
+            },
+            {
+                id: 'tire-protection',
+                name: 'Tire Protection Coating',
+                nameAr: 'طلاء حماية الإطارات',
+                category: 'wheel-protection',
+                categoryName: 'Wheel Protection',
+                categoryNameAr: 'حافة العجلات',
+                categoryIcon: 'fas fa-tire',
+                image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Protective coating for tires to prevent cracking and maintain appearance.',
+                descriptionAr: 'طلاء واقي للإطارات لمنع التشقق والحفاظ على المظهر.',
+                features: ['Crack Prevention', 'UV Protection', 'Gloss Enhancement', 'Easy Cleaning', 'Long Lasting'],
+                pdfUrl: '#',
+                pdfName: 'tire-protection-details.pdf'
+            },
+            {
+                id: 'wheel-cleaning',
+                name: 'Wheel Deep Cleaning',
+                nameAr: 'تنظيف عميق للعجلات',
+                category: 'wheel-protection',
+                categoryName: 'Wheel Protection',
+                categoryNameAr: 'حافة العجلات',
+                categoryIcon: 'fas fa-tire',
+                image: 'https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Professional deep cleaning service for wheels and rims.',
+                descriptionAr: 'خدمة تنظيف عميق احترافية للعجلات والحواف.',
+                features: ['Deep Cleaning', 'Brake Dust Removal', 'Corrosion Prevention', 'Gloss Restoration', 'Professional Service'],
+                pdfUrl: '#',
+                pdfName: 'wheel-cleaning-details.pdf'
+            },
+            {
+                id: 'chrome-protection',
+                name: 'Chrome Parts Protection',
+                nameAr: 'حماية الأجزاء الكرومية',
+                category: 'wheel-protection',
+                categoryName: 'Wheel Protection',
+                categoryNameAr: 'حافة العجلات',
+                categoryIcon: 'fas fa-tire',
+                image: 'https://images.unsplash.com/photo-1507136566006-cfc505b114fc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+                description: 'Protection for chrome wheel parts against oxidation and corrosion.',
+                descriptionAr: 'حماية للأجزاء الكرومية للعجلات ضد الأكسدة والتآكل.',
+                features: ['Oxidation Prevention', 'Corrosion Resistance', 'Gloss Maintenance', 'Easy Cleaning', 'Long Lasting'],
+                pdfUrl: '#',
+                pdfName: 'chrome-protection-details.pdf'
+            }
+        ];
+
+        // Services Data
+        const services = [
+            {
+                id: 'installation',
+                name: 'Professional Installation',
+                nameAr: 'التثبيت الاحترافي',
+                icon: 'fas fa-tools',
+                description: 'Expert installation by certified technicians with comprehensive warranty coverage.',
+                descriptionAr: 'تثبيت احترافي بواسطة فنيين معتمدين مع تغطية ضمان شاملة.',
+                features: ['Certified Technicians', 'Warranty Coverage', 'Quality Materials', 'Professional Tools', 'Aftercare Support']
+            },
+            {
+                id: 'mobile',
+                name: 'Mobile Service',
+                nameAr: 'الخدمة المتنقلة',
+                icon: 'fas fa-car',
+                description: 'We come to you! Professional installation at your preferred location - home or office.',
+                descriptionAr: 'نأتي إليك! التثبيت الاحترافي في موقعك المفضل - المنزل أو المكتب.',
+                features: ['At Your Location', 'Flexible Scheduling', 'Same Quality', 'All Equipment', 'Convenient Service']
+            },
+            {
+                id: 'maintenance',
+                name: 'Annual Maintenance',
+                nameAr: 'الصيانة السنوية',
+                icon: 'fas fa-clipboard-check',
+                description: 'Comprehensive yearly inspection, deep cleaning, and reapplication service for optimal protection.',
+                descriptionAr: 'خدمة التفتيش الشامل السنوي والتنظيف العميق وإعادة التطبيق للحماية المثلى.',
+                features: ['Yearly Inspection', 'Deep Cleaning', 'Reapplication', 'Performance Check', 'Warranty Validation']
+            },
+            {
+                id: 'detailing',
+                name: 'Premium Detailing',
+                nameAr: 'التفصيل المميز',
+                icon: 'fas fa-spray-can',
+                description: 'Complete interior and exterior detailing with premium products and techniques.',
+                descriptionAr: 'تفصيل كامل للداخل والخارج بمنتجات وتقنيات مميزة.',
+                features: ['Interior Detailing', 'Exterior Polish', 'Engine Cleaning', 'Leather Care', 'Paint Correction']
+            },
+            {
+                id: 'repair',
+                name: 'Protection Repair',
+                nameAr: 'إصلاح الحماية',
+                icon: 'fas fa-wrench',
+                description: 'Professional repair and restoration of damaged protection coatings and films.',
+                descriptionAr: 'إصلاح واستعادة احترافي للطلاءات والأفلام الواقية التالفة.',
+                features: ['Damage Assessment', 'Professional Repair', 'Material Matching', 'Seamless Finish', 'Warranty Service']
+            },
+            {
+                id: 'consultation',
+                name: 'Expert Consultation',
+                nameAr: 'استشارة الخبراء',
+                icon: 'fas fa-user-tie',
+                description: 'Personalized consultation to determine the best protection solutions for your vehicle.',
+                descriptionAr: 'استشارة مخصصة لتحديد أفضل حلول الحماية لمركبتك.',
+                features: ['Personal Assessment', 'Solution Recommendation', 'Cost Estimation', 'Schedule Planning', 'Follow-up Support']
+            }
+        ];
+
+        // Get unique categories
+        const categories = [...new Set(products.map(product => product.category))];
+        const categoryData = categories.map(cat => {
+            const product = products.find(p => p.category === cat);
+            return {
+                id: cat,
+                name: product.categoryName,
+                nameAr: product.categoryNameAr,
+                icon: product.categoryIcon,
+                description: product.categoryDescription || "Premium protection solutions"
+            };
+        });
+
+        // Selected items storage
+        let selectedItems = {
+            products: [],
+            services: []
+        };
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+            
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
+        });
+        
+        // Language Toggle
+        const langToggle = document.getElementById('langToggle');
+        const langText = langToggle.querySelector('span');
+        const enTexts = document.querySelectorAll('.en-text');
+        const arTexts = document.querySelectorAll('.ar-text');
+        
+        langToggle.addEventListener('click', () => {
+            const isArabic = document.body.classList.toggle('ar');
+            
+            if (isArabic) {
+                langText.textContent = 'AR';
+                enTexts.forEach(el => el.style.display = 'none');
+                arTexts.forEach(el => el.style.display = 'block');
+            } else {
+                langText.textContent = 'EN';
+                enTexts.forEach(el => el.style.display = 'block');
+                arTexts.forEach(el => el.style.display = 'none');
+            }
+            
+            localStorage.setItem('language', isArabic ? 'ar' : 'en');
+        });
+        
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Initialize slider
+        let currentSlide = 0;
+        function initSlider() {
+            const slider = document.querySelector('.hero-slider');
+            const dotsContainer = document.getElementById('sliderDots');
+            
+            // Create slides
+            slides.forEach((slide, index) => {
+                const slideElement = document.createElement('div');
+                slideElement.className = `slide ${index === 0 ? 'active' : ''}`;
+                slideElement.style.backgroundImage = `url('${slide.image}')`;
+                slideElement.innerHTML = `
+                    <div class="slide-content">
+                        <h2 class="en-text">${slide.title}</h2>
+                        <h2 class="ar-text" style="display:none;">${slide.titleAr}</h2>
+                        <p class="en-text">${slide.description}</p>
+                        <p class="ar-text" style="display:none;">${slide.descriptionAr}</p>
+                    </div>
+                `;
+                slider.insertBefore(slideElement, dotsContainer);
+                
+                // Create dot
+                const dot = document.createElement('div');
+                dot.className = `slider-dot ${index === 0 ? 'active' : ''}`;
+                dot.dataset.index = index;
+                dotsContainer.appendChild(dot);
+                
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                });
+            });
+            
+            // Add slide controls
+            document.getElementById('prevSlide').addEventListener('click', () => {
+                goToSlide(currentSlide - 1);
+            });
+            
+            document.getElementById('nextSlide').addEventListener('click', () => {
+                goToSlide(currentSlide + 1);
+            });
+            
+            // Auto slide every 5 seconds
+            setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000);
+        }
+        
+        function goToSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            // Wrap around
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            
+            // Update current slide
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            currentSlide = index;
+            
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        // Load categories and products
+        function loadCategories() {
+            const categoryTabs = document.getElementById('categoryTabs');
+            const categoriesContainer = document.getElementById('categoriesContainer');
+            
+            // Create category tabs
+            categoryData.forEach((category, index) => {
+                const tab = document.createElement('button');
+                tab.className = `category-tab ${index === 0 ? 'active' : ''}`;
+                tab.dataset.category = category.id;
+                tab.innerHTML = `
+                    <i class="${category.icon}"></i>
+                    <span class="en-text">${category.name}</span>
+                    <span class="ar-text" style="display:none;">${category.nameAr}</span>
+                `;
+                categoryTabs.appendChild(tab);
+                
+                // Create category section
+                const categorySection = document.createElement('div');
+                categorySection.className = `category-section ${index === 0 ? 'active' : ''}`;
+                categorySection.id = `category-${category.id}`;
+                categorySection.innerHTML = `
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="${category.icon}"></i>
+                        </div>
+                        <div>
+                            <h2 class="category-title">
+                                <span class="en-text">${category.name}</span>
+                                <span class="ar-text" style="display:none;">${category.nameAr}</span>
+                            </h2>
+                            <p class="category-description">
+                                <span class="en-text">Premium protection solutions for your vehicle</span>
+                                <span class="ar-text" style="display:none;">حلول حماية مميزة لمركبتك</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="products-grid" id="products-${category.id}">
+                        <!-- Products will be loaded here -->
+                    </div>
+                `;
+                categoriesContainer.appendChild(categorySection);
+            });
+            
+            // Load products for each category
+            categoryData.forEach(category => {
+                loadCategoryProducts(category.id);
+            });
+            
+            // Add event listeners to category tabs
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Update active tab
+                    document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    
+                    // Show selected category
+                    const categoryId = tab.dataset.category;
+                    document.querySelectorAll('.category-section').forEach(section => {
+                        section.classList.remove('active');
+                    });
+                    const targetSection = document.getElementById(`category-${categoryId}`);
+                    targetSection.classList.add('active');
+                    
+                    // Scroll to category with offset
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        }
+        
+        // Load products for a specific category
+        function loadCategoryProducts(categoryId) {
+            const categoryProducts = products.filter(product => product.category === categoryId);
+            const productsGrid = document.getElementById(`products-${categoryId}`);
+            
+            categoryProducts.forEach((product, index) => {
+                const productCard = document.createElement('div');
+                productCard.className = `product-card fade-in ${index > 0 ? 'delay-' + (index % 3 + 1) : ''}`;
+                
+                // Generate features list
+                const featuresHtml = product.features ? `
+                    <div class="product-features">
+                        <ul>
+                            ${product.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : '';
+                
+                productCard.innerHTML = `
+                    <input type="checkbox" class="selection-checkbox" data-type="product" data-id="${product.id}" data-name="${product.name}" data-name-ar="${product.nameAr}">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div class="download-badge" data-pdf="${product.pdfUrl}" data-name="${product.pdfName}">
+                            <i class="fas fa-download"></i>
+                            <span class="en-text">Download Details</span>
+                            <span class="ar-text" style="display:none;">تحميل التفاصيل</span>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title en-text">${product.name}</h3>
+                        <h3 class="product-title ar-text" style="display:none;">${product.nameAr}</h3>
+                        <p class="product-description en-text">${product.description}</p>
+                        <p class="product-description ar-text" style="display:none;">${product.descriptionAr}</p>
+                        ${featuresHtml}
+                        <div class="contact-options">
+                            <button class="contact-btn whatsapp-btn product-contact" data-name="${product.name}" data-name-ar="${product.nameAr}">
+                                <i class="fab fa-whatsapp"></i>
+                                <span class="en-text">WhatsApp</span>
+                                <span class="ar-text" style="display:none;">واتساب</span>
+                            </button>
+                            <button class="contact-btn email-btn product-contact" data-name="${product.name}" data-name-ar="${product.nameAr}">
+                                <i class="fas fa-envelope"></i>
+                                <span class="en-text">Email</span>
+                                <span class="ar-text" style="display:none;">بريد</span>
+                            </button>
+                            <button class="contact-btn call-btn product-contact" data-name="${product.name}" data-name-ar="${product.nameAr}">
+                                <i class="fas fa-phone"></i>
+                                <span class="en-text">Call</span>
+                                <span class="ar-text" style="display:none;">اتصال</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                productsGrid.appendChild(productCard);
+            });
+        }
+        
+        // Load services
+        function loadServices() {
+            const servicesGrid = document.getElementById('servicesGrid');
+            
+            services.forEach((service, index) => {
+                const serviceCard = document.createElement('div');
+                serviceCard.className = `service-card fade-in ${index > 0 ? 'delay-' + (index % 3 + 1) : ''}`;
+                
+                // Generate features list
+                const featuresHtml = service.features ? `
+                    <div class="product-features">
+                        <ul>
+                            ${service.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : '';
+                
+                serviceCard.innerHTML = `
+                    <input type="checkbox" class="service-checkbox" data-type="service" data-id="${service.id}" data-name="${service.name}" data-name-ar="${service.nameAr}">
+                    <div class="service-icon">
+                        <i class="${service.icon}"></i>
+                    </div>
+                    <h3 class="service-title en-text">${service.name}</h3>
+                    <h3 class="service-title ar-text" style="display:none;">${service.nameAr}</h3>
+                    <p class="en-text">${service.description}</p>
+                    <p class="ar-text" style="display:none;">${service.descriptionAr}</p>
+                    ${featuresHtml}
+                    <div class="contact-options" style="margin-top: 20px;">
+                        <button class="contact-btn whatsapp-btn service-contact" data-name="${service.name}" data-name-ar="${service.nameAr}">
+                            <i class="fab fa-whatsapp"></i> 
+                            <span class="en-text">WhatsApp</span>
+                            <span class="ar-text" style="display:none;">واتساب</span>
+                        </button>
+                    </div>
+                `;
+                servicesGrid.appendChild(serviceCard);
+            });
+        }
+        
+        // Update selection summary
+        function updateSelectionSummary() {
+            const totalItems = selectedItems.products.length + selectedItems.services.length;
+            const summary = document.getElementById('selectionSummary');
+            const countElement = document.getElementById('selectedCount');
+            const countElementAr = document.getElementById('selectedCountAr');
+            
+            countElement.textContent = totalItems;
+            countElementAr.textContent = totalItems;
+            
+            if (totalItems > 0) {
+                summary.classList.add('active');
+            } else {
+                summary.classList.remove('active');
+            }
+        }
+        
+        // FIXED: Contact functions
+        function contactViaWhatsApp(name, nameAr, type = 'product') {
+            const isArabic = document.body.classList.contains('ar');
+            const itemName = isArabic ? nameAr : name;
+            
+            let message = `Hello Fox Protection,\n\nI'm interested in your ${type}: ${itemName}\n\n`;
+            
+            // Add all selected items if any
+            const totalSelected = selectedItems.products.length + selectedItems.services.length;
+            if (totalSelected > 0) {
+                message += '\nMy Selection:\n';
+                
+                if (selectedItems.products.length > 0) {
+                    message += '\nProducts:\n';
+                    selectedItems.products.forEach((product, index) => {
+                        const productName = isArabic ? product.nameAr : product.name;
+                        message += `${index + 1}. ${productName}\n`;
+                    });
+                }
+                
+                if (selectedItems.services.length > 0) {
+                    message += '\nServices:\n';
+                    selectedItems.services.forEach((service, index) => {
+                        const serviceName = isArabic ? service.nameAr : service.name;
+                        message += `${index + 1}. ${serviceName}\n`;
+                    });
+                }
+                
+                message += `\nTotal Items: ${totalSelected}`;
+            }
+            
+            message += '\n\nPlease contact me with details and pricing.\nThank you!';
+            
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/96555433574?text=${encodedMessage}`, '_blank');
+        }
+        
+        function contactViaEmail(name, nameAr) {
+            const isArabic = document.body.classList.contains('ar');
+            const itemName = isArabic ? nameAr : name;
+            const subject = encodeURIComponent(`Inquiry about: ${itemName}`);
+            
+            let body = `Hello Fox Protection,\n\nI would like more information about: ${itemName}\n\n`;
+            
+            // Add all selected items if any
+            const totalSelected = selectedItems.products.length + selectedItems.services.length;
+            if (totalSelected > 0) {
+                body += 'My Selection:\n';
+                
+                if (selectedItems.products.length > 0) {
+                    body += '\nProducts:\n';
+                    selectedItems.products.forEach((product, index) => {
+                        const productName = isArabic ? product.nameAr : product.name;
+                        body += `${index + 1}. ${productName}\n`;
+                    });
+                }
+                
+                if (selectedItems.services.length > 0) {
+                    body += '\nServices:\n';
+                    selectedItems.services.forEach((service, index) => {
+                        const serviceName = isArabic ? service.nameAr : service.name;
+                        body += `${index + 1}. ${serviceName}\n`;
+                    });
+                }
+                
+                body += `\nTotal Items: ${totalSelected}\n`;
+            }
+            
+            body += '\nPlease contact me with details and pricing.\n\nThank you!';
+            
+            const encodedBody = encodeURIComponent(body);
+            window.location.href = `mailto:mohamedsayed210@gmail.com?subject=${subject}&body=${encodedBody}`;
+        }
+        
+        function contactViaCall() {
+            window.location.href = 'tel:+96555433574';
+        }
+        
+        // FIXED: PDF download function
+        function downloadPDF(pdfUrl, pdfName) {
+            if (pdfUrl && pdfUrl !== '#') {
+                // Create a temporary link element
+                const link = document.createElement('a');
+                link.href = pdfUrl;
+                link.download = pdfName || 'product-details.pdf';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                showNotification('PDF download started!', 'success');
+            } else {
+                // Show message if no PDF available
+                const isArabic = document.body.classList.contains('ar');
+                const message = isArabic ? 'سيتوفر ملف PDF قريبًا' : 'PDF will be available soon!';
+                showNotification(message, 'info');
+            }
+        }
+        
+        // Show notification
+        function showNotification(message, type) {
+            // Remove existing notification
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 100px;
+                right: 30px;
+                background: ${type === 'success' ? '#2ecc71' : type === 'info' ? '#3498db' : '#e74c3c'};
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 1002;
+                animation: slideIn 0.3s ease;
+                max-width: 250px;
+                font-weight: 500;
+                font-size: 0.9rem;
+            `;
+            
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    if (notification.parentNode) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 3000);
+        }
+        
+        // Initialize Google Maps
+        function initMap() {
+            // Kuwait-Shwaik Industrial Area coordinates
+            const location = { lat: 29.3460, lng: 47.9785 };
+            
+            const map = new google.maps.Map(document.getElementById("googleMap"), {
+                zoom: 15,
+                center: location,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                styles: [
+                    {
+                        featureType: "all",
+                        elementType: "labels.text.fill",
+                        stylers: [{ color: "#ffffff" }]
+                    },
+                    {
+                        featureType: "all",
+                        elementType: "labels.text.stroke",
+                        stylers: [{ color: "#000000" }, { weight: 2 }]
+                    },
+                    {
+                        featureType: "all",
+                        elementType: "labels.icon",
+                        stylers: [{ visibility: "off" }]
+                    },
+                    {
+                        featureType: "road",
+                        elementType: "geometry",
+                        stylers: [{ color: "#1a1a1a" }]
+                    },
+                    {
+                        featureType: "landscape",
+                        elementType: "geometry",
+                        stylers: [{ color: "#2c2c2c" }]
+                    }
+                ]
+            });
+            
+            // Add marker
+            const marker = new google.maps.Marker({
+                position: location,
+                map: map,
+                title: "Fox Protection - Kuwait-Shwaik Industrial Area",
+                icon: {
+                    url: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23ff8c42'/%3E%3Cpath d='M30 40 Q50 20 70 40 Q80 50 75 65 Q70 80 50 85 Q30 80 25 65 Q20 50 30 40' fill='white'/%3E%3Ccircle cx='40' cy='45' r='5' fill='%23333'/%3E%3Ccircle cx='60' cy='45' r='5' fill='%23333'/%3E%3Cpath d='M45 60 Q50 65 55 60' stroke='%23333' stroke-width='2' fill='transparent'/%3E%3C/svg%3E",
+                    scaledSize: new google.maps.Size(40, 40)
+                }
+            });
+            
+            // Add info window
+            const infoWindow = new google.maps.InfoWindow({
+                content: `
+                    <div style="color: #333; padding: 10px;">
+                        <h3 style="margin: 0 0 10px 0; color: #ff8c42;">Fox Protection</h3>
+                        <p style="margin: 0 0 5px 0;"><strong>Address:</strong> Kuwait-Shwaik, Industrial Area</p>
+                        <p style="margin: 0 0 5px 0;"><strong>Phone:</strong> +965 5543 3574</p>
+                        <p style="margin: 0;"><strong>Hours:</strong> 8:00 AM - 7:00 PM</p>
+                    </div>
+                `
+            });
+            
+            marker.addListener("click", () => {
+                infoWindow.open(map, marker);
+            });
+            
+            // Remove placeholder
+            const placeholder = document.querySelector('.map-placeholder');
+            if (placeholder) {
+                placeholder.style.display = 'none';
+            }
+        }
+        
+        function openGoogleMaps() {
+            const url = "https://www.google.com/maps/dir/?api=1&destination=29.3460,47.9785&destination_place_id=ChIJN1t_tDeuEmsRUsoyG83frY4";
+            window.open(url, '_blank');
+        }
+        
+        // Event Delegation for all buttons
+        document.addEventListener('click', function(e) {
+            // Checkbox selection
+            if (e.target.classList.contains('selection-checkbox') || e.target.classList.contains('service-checkbox')) {
+                const checkbox = e.target;
+                const type = checkbox.dataset.type;
+                const id = checkbox.dataset.id;
+                const name = checkbox.dataset.name;
+                const nameAr = checkbox.dataset.nameAr;
+                
+                if (checkbox.checked) {
+                    // Add to selection
+                    if (type === 'product') {
+                        selectedItems.products.push({ id, name, nameAr });
+                    } else {
+                        selectedItems.services.push({ id, name, nameAr });
+                    }
+                } else {
+                    // Remove from selection
+                    if (type === 'product') {
+                        selectedItems.products = selectedItems.products.filter(item => item.id !== id);
+                    } else {
+                        selectedItems.services = selectedItems.services.filter(item => item.id !== id);
+                    }
+                }
+                
+                updateSelectionSummary();
+            }
+            
+            // Product contact buttons
+            if (e.target.closest('.product-contact')) {
+                const button = e.target.closest('.product-contact');
+                const name = button.dataset.name;
+                const nameAr = button.dataset.nameAr;
+                
+                if (button.classList.contains('whatsapp-btn')) {
+                    contactViaWhatsApp(name, nameAr, 'product');
+                } else if (button.classList.contains('email-btn')) {
+                    contactViaEmail(name, nameAr);
+                } else if (button.classList.contains('call-btn')) {
+                    contactViaCall();
+                }
+            }
+            
+            // Service contact buttons
+            if (e.target.closest('.service-contact')) {
+                const button = e.target.closest('.service-contact');
+                const name = button.dataset.name;
+                const nameAr = button.dataset.nameAr;
+                
+                if (button.classList.contains('whatsapp-btn')) {
+                    contactViaWhatsApp(name, nameAr, 'service');
+                }
+            }
+            
+            // Download PDF buttons
+            if (e.target.closest('.download-badge')) {
+                const badge = e.target.closest('.download-badge');
+                const pdfUrl = badge.dataset.pdf;
+                const pdfName = badge.dataset.name;
+                downloadPDF(pdfUrl, pdfName);
+            }
+            
+            // Contact section buttons
+            if (e.target.id === 'callBtn' || e.target.closest('#callBtn')) {
+                contactViaCall();
+            }
+            
+            if (e.target.id === 'emailBtn' || e.target.closest('#emailBtn')) {
+                const isArabic = document.body.classList.contains('ar');
+                const subject = isArabic ? 'استفسار عن فوكس بروتكشن' : 'Inquiry about Fox Protection';
+                let body = isArabic ? 
+                    'مرحبًا فوكس بروتكشن،\n\nأود الحصول على معلومات عن خدمات حماية المركبات لديكم.\n\n' :
+                    'Hello Fox Protection,\n\nI would like information about your vehicle protection services.\n\n';
+                
+                // Add all selected items if any
+                const totalSelected = selectedItems.products.length + selectedItems.services.length;
+                if (totalSelected > 0) {
+                    if (isArabic) {
+                        body += 'اختياري:\n';
+                        
+                        if (selectedItems.products.length > 0) {
+                            body += '\nالمنتجات:\n';
+                            selectedItems.products.forEach((product, index) => {
+                                body += `${index + 1}. ${product.nameAr}\n`;
+                            });
+                        }
+                        
+                        if (selectedItems.services.length > 0) {
+                            body += '\nالخدمات:\n';
+                            selectedItems.services.forEach((service, index) => {
+                                body += `${index + 1}. ${service.nameAr}\n`;
+                            });
+                        }
+                        
+                        body += `\nإجمالي العناصر: ${totalSelected}\n`;
+                    } else {
+                        body += 'My Selection:\n';
+                        
+                        if (selectedItems.products.length > 0) {
+                            body += '\nProducts:\n';
+                            selectedItems.products.forEach((product, index) => {
+                                body += `${index + 1}. ${product.name}\n`;
+                            });
+                        }
+                        
+                        if (selectedItems.services.length > 0) {
+                            body += '\nServices:\n';
+                            selectedItems.services.forEach((service, index) => {
+                                body += `${index + 1}. ${service.name}\n`;
+                            });
+                        }
+                        
+                        body += `\nTotal Items: ${totalSelected}\n`;
+                    }
+                }
+                
+                body += isArabic ? 
+                    '\nيرجى التواصل معي بالتفاصيل والأسعار.\n\nشكرًا!' :
+                    '\nPlease contact me with details and pricing.\n\nThank you!';
+                
+                const encodedBody = encodeURIComponent(body);
+                window.location.href = `mailto:mohamedsayed210@gmail.com?subject=${subject}&body=${encodedBody}`;
+            }
+            
+            if (e.target.id === 'whatsappBtn' || e.target.closest('#whatsappBtn')) {
+                const isArabic = document.body.classList.contains('ar');
+                let message = isArabic ? 
+                    'مرحبًا فوكس بروتكشن، أود الحصول على معلومات عن خدمات حماية المركبات لديكم.\n\n' :
+                    'Hello Fox Protection, I would like information about your vehicle protection services.\n\n';
+                
+                // Add all selected items if any
+                const totalSelected = selectedItems.products.length + selectedItems.services.length;
+                if (totalSelected > 0) {
+                    if (isArabic) {
+                        message += 'اختياري:\n';
+                        
+                        if (selectedItems.products.length > 0) {
+                            message += '\nالمنتجات:\n';
+                            selectedItems.products.forEach((product, index) => {
+                                message += `${index + 1}. ${product.nameAr}\n`;
+                            });
+                        }
+                        
+                        if (selectedItems.services.length > 0) {
+                            message += '\nالخدمات:\n';
+                            selectedItems.services.forEach((service, index) => {
+                                message += `${index + 1}. ${service.nameAr}\n`;
+                            });
+                        }
+                        
+                        message += `\nإجمالي العناصر: ${totalSelected}`;
+                    } else {
+                        message += 'My Selection:\n';
+                        
+                        if (selectedItems.products.length > 0) {
+                            message += '\nProducts:\n';
+                            selectedItems.products.forEach((product, index) => {
+                                message += `${index + 1}. ${product.name}\n`;
+                            });
+                        }
+                        
+                        if (selectedItems.services.length > 0) {
+                            message += '\nServices:\n';
+                            selectedItems.services.forEach((service, index) => {
+                                message += `${index + 1}. ${service.name}\n`;
+                            });
+                        }
+                        
+                        message += `\nTotal Items: ${totalSelected}`;
+                    }
+                }
+                
+                message += isArabic ? 
+                    '\n\nيرجى التواصل معي بالتفاصيل والأسعار.\nشكرًا!' :
+                    '\n\nPlease contact me with details and pricing.\nThank you!';
+                
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/96555433574?text=${encodedMessage}`, '_blank');
+            }
+            
+            // Clear selection button
+            if (e.target.id === 'clearSelection' || e.target.closest('#clearSelection')) {
+                selectedItems.products = [];
+                selectedItems.services = [];
+                
+                // Uncheck all checkboxes
+                document.querySelectorAll('.selection-checkbox, .service-checkbox').forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                
+                updateSelectionSummary();
+                showNotification('Selection cleared!', 'info');
+            }
+            
+            // Send WhatsApp summary button
+            if (e.target.id === 'sendWhatsAppSummary' || e.target.closest('#sendWhatsAppSummary')) {
+                const totalSelected = selectedItems.products.length + selectedItems.services.length;
+                const isArabic = document.body.classList.contains('ar');
+                
+                if (totalSelected === 0) {
+                    const message = isArabic ? 'يرجى اختيار عناصر أولاً' : 'Please select items first';
+                    showNotification(message, 'info');
+                    return;
+                }
+                
+                let message = isArabic ? 
+                    'مرحبًا فوكس بروتكشن،\n\nأود الحصول على معلومات عن العناصر التالية:\n\n' :
+                    'Hello Fox Protection,\n\nI would like information about the following items:\n\n';
+                
+                if (selectedItems.products.length > 0) {
+                    message += isArabic ? 'المنتجات:\n' : 'Products:\n';
+                    selectedItems.products.forEach((product, index) => {
+                        const productName = isArabic ? product.nameAr : product.name;
+                        message += `${index + 1}. ${productName}\n`;
+                    });
+                    message += '\n';
+                }
+                
+                if (selectedItems.services.length > 0) {
+                    message += isArabic ? 'الخدمات:\n' : 'Services:\n';
+                    selectedItems.services.forEach((service, index) => {
+                        const serviceName = isArabic ? service.nameAr : service.name;
+                        message += `${index + 1}. ${serviceName}\n`;
+                    });
+                    message += '\n';
+                }
+                
+                message += isArabic ? 
+                    `إجمالي العناصر: ${totalSelected}\n\nيرجى التواصل معي بالتفاصيل والأسعار.\nشكرًا!` :
+                    `Total Items: ${totalSelected}\n\nPlease contact me with details and pricing.\nThank you!`;
+                
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/96555433574?text=${encodedMessage}`, '_blank');
+            }
+        });
+        
+        // Load saved preferences
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load theme
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+            
+            // Load language
+            const savedLanguage = localStorage.getItem('language');
+            if (savedLanguage === 'ar') {
+                document.body.classList.add('ar');
+                langText.textContent = 'AR';
+                enTexts.forEach(el => el.style.display = 'none');
+                arTexts.forEach(el => el.style.display = 'block');
+            }
+            
+            // Initialize slider
+            initSlider();
+            
+            // Load categories, products, and services
+            loadCategories();
+            loadServices();
+        });
+        
+        // WhatsApp button animation
+        const whatsappBtn = document.querySelector('.whatsapp-float');
+        if (whatsappBtn) {
+            whatsappBtn.addEventListener('mouseenter', () => {
+                whatsappBtn.style.animation = 'none';
+                setTimeout(() => {
+                    whatsappBtn.style.animation = 'float 6s ease-in-out infinite';
+                }, 10);
+            });
+        }
+        
+        // Scroll progress indicator
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const scrollProgress = document.getElementById('scrollProgress');
+            if (scrollProgress) {
+                scrollProgress.style.width = scrolled + '%';
+            }
+        });
+        
+        // Add animation keyframes for notifications
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOut {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+            
+            .category-section {
+                display: none;
+            }
+            
+            .category-section.active {
+                display: block;
+                animation: fadeIn 0.5s ease;
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Google Maps error handling
+        window.gm_authFailure = function() {
+            const mapContainer = document.getElementById('googleMap');
+            if (mapContainer) {
+                mapContainer.innerHTML = `
+                    <div class="map-placeholder">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p class="en-text">Unable to load Google Maps. Please try again later.</p>
+                        <p class="ar-text" style="display:none;">تعذر تحميل خرائط جوجل. يرجى المحاولة مرة أخرى لاحقًا.</p>
+                        <button onclick="openGoogleMaps()" style="margin-top: 15px; padding: 10px 20px; background: var(--secondary-light); color: white; border: none; border-radius: 5px; cursor: pointer;">
+                            <i class="fas fa-external-link-alt"></i> 
+                            <span class="en-text">Open in Google Maps</span>
+                            <span class="ar-text" style="display:none;">فتح في خرائط جوجل</span>
+                        </button>
+                    </div>
+                `;
+            }
+        };
+    </script>
+</body>
+</html>
