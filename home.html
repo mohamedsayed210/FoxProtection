@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" translate="no">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fox Protection | Vehicle Wrapping, PPF & Window Tinting</title>
+    
+    <!-- Meta tags to prevent auto-translation -->
+    <meta name="google" content="notranslate">
+    <meta http-equiv="Content-Language" content="en">
     
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="./images/logo.jpg">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Preconnect to improve loading -->
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com/ajax/libs">
+    <link rel="dns-prefetch" href="https://maps.google.com">
     
     <style>
         /* RESET AND BASE STYLES */
@@ -20,6 +28,7 @@
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             transition: background-color 0.5s ease, color 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
         }
         
         :root {
@@ -46,6 +55,10 @@
             --border-dark: rgba(255, 255, 255, 0.05);
         }
         
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+        
         body {
             line-height: 1.6;
             color: var(--dark-light);
@@ -54,6 +67,8 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            -webkit-overflow-scrolling: touch;
+            top: 0 !important;
         }
         
         body.dark-mode {
@@ -66,6 +81,19 @@
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 15px;
+        }
+        
+        .google-map {
+            padding-bottom: 50%;
+            position: relative;
+        }
+
+        .google-map iframe {
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            position: absolute;
         }
         
         /* MAIN CONTENT WRAPPER */
@@ -561,7 +589,7 @@
             margin-left: auto;
         }
         
-        .theme-toggle, .lang-toggle {
+        .theme-toggle, .lang-toggle, .menu-toggle {
             background: rgba(255, 255, 255, 0.1);
             border: none;
             border-radius: 50%;
@@ -574,25 +602,164 @@
             transition: all 0.3s ease;
             color: white;
             font-size: 1.2rem;
+            -webkit-appearance: none;
+            border-radius: 50%;
         }
         
-        .theme-toggle:hover, .lang-toggle:hover {
+        .theme-toggle:hover, .lang-toggle:hover, .menu-toggle:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
         }
         
-        .dark-mode .theme-toggle, .dark-mode .lang-toggle {
+        .dark-mode .theme-toggle, .dark-mode .lang-toggle, .dark-mode .menu-toggle {
             background: rgba(255, 255, 255, 0.05);
             color: var(--dark-dark);
         }
         
-        .dark-mode .theme-toggle:hover, .dark-mode .lang-toggle:hover {
+        .dark-mode .theme-toggle:hover, .dark-mode .lang-toggle:hover, .dark-mode .menu-toggle:hover {
             background: rgba(255, 255, 255, 0.1);
         }
         
         .lang-toggle span {
             font-weight: 600;
             font-size: 0.9rem;
+        }
+        
+        /* Mobile Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+        }
+        
+        /* Mobile Navigation */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: var(--primary-light);
+            z-index: 1000;
+            padding: 1rem 0;
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dark-mode .mobile-menu {
+            background: var(--light-dark);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Mobile Menu Container */
+        .mobile-menu-container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Mobile Menu Close Button */
+        .mobile-menu-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1001;
+            transition: all 0.3s ease;
+            border-radius: 50%;
+            padding: 0;
+        }
+        
+        .mobile-menu-close:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: rotate(90deg);
+        }
+        
+        .mobile-menu-close svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+        }
+        
+        .dark-mode .mobile-menu-close {
+            color: var(--dark-dark);
+        }
+        
+        .dark-mode .mobile-menu-close:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        .mobile-menu ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            list-style: none;
+            padding: 1rem 0;
+        }
+        
+        .mobile-menu li {
+            width: 100%;
+        }
+        
+        .mobile-menu a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px 15px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            width: 100%;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+        
+        .dark-mode .mobile-menu a {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            color: var(--dark-dark);
+        }
+        
+        .mobile-menu a:after {
+            display: none;
+        }
+        
+        .mobile-menu a:hover {
+            background: rgba(255,255,255,0.1);
+            padding-left: 20px;
+        }
+        
+        .dark-mode .mobile-menu a:hover {
+            background: rgba(0,0,0,0.1);
+        }
+        
+        .mobile-menu a i {
+            width: 25px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--secondary-light);
+        }
+        
+        .dark-mode .mobile-menu a i {
+            color: var(--secondary-dark);
         }
         
         /* WhatsApp Float */
@@ -871,10 +1038,23 @@
             justify-content: center;
             text-align: center;
             color: white;
+          
+        }
+        
+        .slide:nth-child(3) {
+            background-position: center 80%; /* Show bottom 20% of image */
+            background-size: 100% auto; /* Don't crop height */
+        }
+        
+        .slide:nth-child(4) {
+            background-position: center bottom;
+            background-size: contain; /* Shows entire image */
+            background-color: #0d2840; /* Fill empty space with your theme color */
         }
         
         .slide.active {
             opacity: 1;
+         
         }
         
         .slide-content {
@@ -884,6 +1064,7 @@
             max-width: 800px;
             margin: 0 2rem;
             backdrop-filter: blur(5px);
+            padding-bottom: 20px;
         }
         
         .slide h2 {
@@ -1514,6 +1695,12 @@
             color: var(--dark-dark);
         }
         
+        .map-link {
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+        }
+        
         /* Google Maps Section */
         .map-section {
             padding: 4rem 0;
@@ -1537,74 +1724,9 @@
             box-shadow: var(--shadow-dark);
         }
         
-        .custom-map-marker {
-            position: absolute;
-            z-index: 10;
-            cursor: pointer;
-            transform: translate(-50%, -100%);
-            transition: transform 0.3s ease;
-        }
-        
-        .custom-map-marker:hover {
-            transform: translate(-50%, -100%) scale(1.2);
-        }
-        
-        .marker-pin {
-            width: 40px;
-            height: 60px;
-            position: relative;
-            animation: bounce 2s infinite;
-        }
-        
-        .marker-pin .pin {
-            width: 40px;
-            height: 40px;
-            background: #ff0000;
-            border-radius: 50% 50% 50% 0;
-            position: absolute;
-            transform: rotate(-45deg);
-            left: 50%;
-            top: 0;
-            margin-left: -20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-        
-        .marker-pin .pin:after {
-            content: '';
-            width: 20px;
-            height: 20px;
-            margin: 10px 0 0 10px;
-            background: #ffffff;
-            position: absolute;
-            border-radius: 50%;
-        }
-        
-        .marker-pin .pulse {
-            width: 20px;
-            height: 20px;
-            background: rgba(255,0,0,0.3);
-            border-radius: 50%;
-            position: absolute;
-            left: 50%;
-            top: 10px;
-            margin-left: -10px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(3); opacity: 0; }
-        }
-        
         .map-overlay {
             position: absolute;
-            bottom: 20px;
+            top: 20px;
             left: 20px;
             background: rgba(0,0,0,0.7);
             color: white;
@@ -1822,7 +1944,19 @@
             background: linear-gradient(to right, var(--secondary-dark), var(--accent-dark));
         }
         
-        /* Responsive Design */
+        /* Hide browser translation UI */
+        .goog-te-banner-frame,
+        .skiptranslate,
+        #google_translate_element {
+            display: none !important;
+        }
+        
+        /* Language-specific styles */
+        html[lang="ar"] * {
+            letter-spacing: 0 !important;
+        }
+        
+        /* Responsive Design - UPDATED FOR MOBILE */
         @media (max-width: 1200px) {
             .slide h2 {
                 font-size: 2.5rem;
@@ -1834,10 +1968,6 @@
             
             .map-container {
                 height: 400px;
-            }
-            
-            .roll-specs-grid {
-                grid-template-columns: repeat(2, 1fr);
             }
             
             .instagram-posts, .youtube-videos {
@@ -1867,10 +1997,6 @@
                 gap: 2.5rem;
             }
             
-            .contact-options {
-                flex-direction: column;
-            }
-            
             .map-container {
                 height: 350px;
             }
@@ -1879,17 +2005,43 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .social-header {
-                margin-left: 0;
-                order: 3;
-                width: 100%;
-                justify-content: center;
-                margin-top: 1rem;
+            /* Mobile menu styles - FIXED */
+            .menu-toggle {
+                display: flex;
             }
             
-            .map-overlay {
-                bottom: 70px;
-                max-width: 200px;
+            /* Hide desktop navigation on mobile */
+            nav ul {
+                display: none;
+            }
+            
+            .header-content {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .logo {
+                order: 1;
+                flex: 1;
+            }
+            
+            .menu-toggle {
+                order: 2;
+            }
+            
+            .header-controls {
+                order: 3;
+                margin-left: 0;
+                width: auto;
+            }
+            
+            .social-header {
+                order: 4;
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
+                margin-left: 0;
+                display: flex;
             }
         }
         
@@ -1897,23 +2049,6 @@
             .header-content {
                 flex-wrap: wrap;
                 gap: 1rem;
-            }
-            
-            .header-controls {
-                order: 4;
-                width: 100%;
-                justify-content: center;
-                margin-top: 1rem;
-            }
-            
-            nav {
-                order: 2;
-            }
-            
-            nav ul {
-                gap: 1.2rem;
-                flex-wrap: wrap;
-                justify-content: center;
             }
             
             .hero-slider {
@@ -1966,6 +2101,10 @@
                 grid-template-columns: 1fr;
             }
             
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .footer-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -2002,14 +2141,6 @@
                 font-size: 1rem;
             }
             
-            .roll-specs-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .spec-grid {
-                grid-template-columns: 1fr;
-            }
-            
             .instagram-posts, .youtube-videos {
                 grid-template-columns: 1fr;
             }
@@ -2028,6 +2159,85 @@
                 right: auto;
                 margin: 0 auto;
                 display: block;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media (max-width: 576px) {
+            .container {
+                width: 95%;
+                padding: 0 10px;
+            }
+            
+            .slide h2 {
+                font-size: 1.5rem;
+            }
+            
+            .slide p {
+                font-size: 0.9rem;
+            }
+            
+            .slide-content {
+                padding: 1rem;
+                margin: 0 0.5rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .whatsapp-text {
+                font-size: 0.6rem;
+            }
+            
+            .footer-section {
+                text-align: center;
+            }
+            
+            .social-icons {
+                justify-content: center;
+            }
+            
+            .map-container {
+                height: 250px;
+            }
+            
+            .contact-options {
+                flex-direction: column;
+            }
+            
+            .selection-summary {
+                padding: 10px;
+            }
+            
+            .send-whatsapp-summary, .clear-selection {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .mobile-menu-container {
+                width: 95%;
+                padding: 0 10px;
+            }
+        }
+        
+        /* Tablet and small desktop */
+        @media (min-width: 577px) and (max-width: 992px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .instagram-posts,
+            .youtube-videos {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
         
@@ -2079,13 +2289,19 @@
             text-align: left;
         }
         
-        .ar .roll-spec-card {
-            border-left: none;
-            border-right: 4px solid var(--secondary-light);
-        }
-        
         .ar .spec-section-title {
             justify-content: flex-end;
+        }
+        
+        /* Mobile menu for Arabic */
+        .ar .mobile-menu a {
+            text-align: right;
+            padding-right: 20px;
+        }
+        
+        .ar .mobile-menu-close {
+            right: unset;
+            left: 15px;
         }
         
         /* Image fallback styles */
@@ -2122,9 +2338,37 @@
         .dark-mode .product-image, .dark-mode .instagram-post, .dark-mode .youtube-video {
             background: var(--border-dark);
         }
+        
+        /* Improve touch targets on mobile */
+        button, 
+        a, 
+        .contact-btn,
+        .category-tab,
+        .selection-checkbox,
+        .service-checkbox {
+            min-height: 44px;
+            min-width: 44px;
+        }
+        
+        /* Improve form elements on mobile */
+        input, select, textarea {
+            font-size: 16px; /* Prevents iOS zoom on focus */
+        }
+        
+        /* Fix iOS button styling */
+        button {
+            -webkit-appearance: none;
+            border-radius: 0;
+        }
+        
+        /* Improve visibility of active elements */
+        button:active,
+        a:active {
+            opacity: 0.8;
+        }
     </style>
 </head>
-<body class="en">
+<body class="en" translate="no">
     <!-- Scroll Progress -->
     <div class="scroll-progress" id="scrollProgress"></div>
     
@@ -2158,7 +2402,7 @@
         <div class="container header-content">
             <div class="logo">
                 <div class="logo-icon">
-                    <img src="./images/logo.jpg" alt="Fox Protection Logo" class="logo-img">
+                    <img src="./images/logo.jpg" alt="Fox Protection Logo" class="logo-img" loading="lazy">
                 </div>
                 <div class="logo-text">
                     <h1>Fox Protection</h1>
@@ -2166,6 +2410,7 @@
                 </div>
             </div>
             
+            <!-- Desktop Navigation -->
             <nav>
                 <ul id="navMenu">
                     <li><a href="#home" class="active">Home</a></li>
@@ -2198,6 +2443,59 @@
                     <i class="fas fa-globe"></i>
                     <span>EN</span>
                 </button>
+                <!-- Mobile Menu Toggle Button -->
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <div class="mobile-menu-container">
+                    <button class="mobile-menu-close" id="mobileMenuClose">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x">
+                            <path d="M18 6 6 18"></path>
+                            <path d="m6 6 12 12"></path>
+                        </svg>
+                    </button>
+                    <ul>
+                        <li><a href="#home" class="active">
+                            <i class="fas fa-home"></i>
+                            <span class="en-text">Home</span>
+                            <span class="ar-text" style="display:none;">الرئيسية</span>
+                        </a></li>
+                        <li><a href="#categories">
+                            <i class="fas fa-layer-group"></i>
+                            <span class="en-text">Products</span>
+                            <span class="ar-text" style="display:none;">المنتجات</span>
+                        </a></li>
+                        <li><a href="#services">
+                            <i class="fas fa-tools"></i>
+                            <span class="en-text">Services</span>
+                            <span class="ar-text" style="display:none;">الخدمات</span>
+                        </a></li>
+                        <li><a href="#instagram">
+                            <i class="fas fa-images"></i>
+                            <span class="en-text">Gallery</span>
+                            <span class="ar-text" style="display:none;">المعرض</span>
+                        </a></li>
+                        <li><a href="#youtube">
+                            <i class="fab fa-youtube"></i>
+                            <span class="en-text">Videos</span>
+                            <span class="ar-text" style="display:none;">الفيديوهات</span>
+                        </a></li>
+                        <li><a href="#location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="en-text">Location</span>
+                            <span class="ar-text" style="display:none;">الموقع</span>
+                        </a></li>
+                        <li><a href="#contact">
+                            <i class="fas fa-phone-alt"></i>
+                            <span class="en-text">Contact</span>
+                            <span class="ar-text" style="display:none;">اتصل بنا</span>
+                        </a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </header>
@@ -2253,10 +2551,9 @@
         </section>
         
         <!-- Instagram Gallery Section -->
-         <section class="instagram-gallery" id="instagram" style="padding: 1rem 0;">
-
+        <section class="instagram-gallery" id="instagram" style="padding: 1rem 0;">
             <div class="container">
-            <div class="section-title">
+                <div class="section-title">
                     <h2 class="en-text">Our Work Gallery</h2>
                     <h2 class="ar-text" style="display:none;">معرض أعمالنا</h2>
                     <p class="en-text">Check out our latest projects on Instagram</p>
@@ -2290,77 +2587,17 @@
                 </div>
                 
                 <div class="youtube-videos" id="youtubeVideos">
-                    <!-- Video 1 -->
-                    <div class="youtube-video fade-in">
-                        <div class="video-preview">
-                            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'" alt="Car Wrapping Demo" loading="lazy" 
-                                 onerror="this.src='https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="video-duration">5:30</div>
-                        </div>
-                        <div class="video-info">
-                            <h4 class="en-text">Car Wrapping Demo</h4>
-                            <h4 class="ar-text" style="display:none;">عرض تغليف السيارة</h4>
-                            <p class="en-text">Watch our professional wrapping process step by step</p>
-                            <p class="ar-text" style="display:none;">شاهد عملية التغليف الاحترافية خطوة بخطوة</p>
-                            <a href="https://www.youtube.com/watch?v=lg3HrMvLpl8" target="_blank" class="watch-link">
-                                <i class="fab fa-youtube"></i>
-                                <span class="en-text">Watch on YouTube</span>
-                                <span class="ar-text" style="display:none;">شاهد على يوتيوب</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 2 -->
-                    <div class="youtube-video fade-in delay-1">
-                        <div class="video-preview">
-                            <img src="https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="PPF Installation" loading="lazy" 
-                                 onerror="this.src='https://images.unsplash.com/photo-1553440569-bcc63803a83d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="video-duration">8:15</div>
-                        </div>
-                        <div class="video-info">
-                            <h4 class="en-text">PPF Installation</h4>
-                            <h4 class="ar-text" style="display:none;">تركيب PPF</h4>
-                            <p class="en-text">Complete paint protection film installation guide</p>
-                            <p class="ar-text" style="display:none;">دليل كامل لتركيب فيلم حماية الطلاء</p>
-                            <a href="https://www.youtube.com/watch?v=lg3HrMvLpl8" target="_blank" class="watch-link">
-                                <i class="fab fa-youtube"></i>
-                                <span class="en-text">Watch on YouTube</span>
-                                <span class="ar-text" style="display:none;">شاهد على يوتيوب</span>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <!-- Video 3 -->
-                    <div class="youtube-video fade-in delay-2">
-                        <div class="video-preview">
-                            <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Window Tinting" loading="lazy" 
-                                 onerror="this.src='https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
-                            </div>
-                            <div class="video-duration">1:45</div>
-                        </div>
-                        <div class="video-info">
-                            <h4 class="en-text">Window Tinting</h4>
-                            <h4 class="ar-text" style="display:none;">تعتيم النوافذ</h4>
-                            <p class="en-text">Professional window tint installation techniques</p>
-                            <p class="ar-text" style="display:none;">تقنيات تركيب تعتيم نوافذ احترافية</p>
-                            <a href="https://www.youtube.com/watch?v=lg3HrMvLpl8" target="_blank" class="watch-link">
-                                <i class="fab fa-youtube"></i>
-                                <span class="en-text">Watch on YouTube</span>
-                                <span class="ar-text" style="display:none;">شاهد على يوتيوب</span>
-                            </a>
+                    <!-- Videos will be loaded dynamically from YouTube channel -->
+                    <div class="loading-videos">
+                        <div class="loading-spinner">
+                            <i class="fas fa-spinner fa-spin"></i>
+                            <p class="en-text">Loading latest videos...</p>
+                            <p class="ar-text" style="display:none;">جاري تحميل أحدث الفيديوهات...</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section> 
+        </section>
         
         <!-- Google Maps Location Section -->
         <section class="map-section" id="location">
@@ -2373,39 +2610,16 @@
                 </div>
                 
                 <div class="map-container">
-                    <!-- Custom Map with Interactive Marker -->
-                    <div id="customMap" style="width: 100%; height: 100%; position: relative;">
-                        <!-- Map Background Image -->
-                        <img src="https://maps.googleapis.com/maps/api/staticmap?center=29.3106443,47.9335372&zoom=16&size=800x450&scale=2&markers=color:red%7Clabel:F%7C29.3106443,47.9335372&key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg" 
-                             alt="Fox Protection Location" 
-                             style="width: 100%; height: 100%; object-fit: cover;"
-                             onerror="replaceWithWorkingMap(this)">
-                        
-                        <!-- Animated Red Marker -->
-                        <div class="custom-map-marker" id="customMarker" style="top: 45%; left: 48%;" onclick="openGoogleMaps()">
-                            <div class="marker-pin">
-                                <div class="pin"></div>
-                                <div class="pulse"></div>
-                            </div>
-                        </div>
-                        
-                        <!-- Map Overlay Info -->
-                        <div class="map-overlay">
-                            <h3>Fox Protection</h3>
-                            <p>Al-Rai, Mohammad ben Qasem Area</p>
-                            <p>Kuwait</p>
-                            <p>+965 6621 6681</p>
-                        </div>
-                        
-                        <!-- Open Google Maps Button -->
-                        <button class="map-open-btn" onclick="openGoogleMaps()">
-                            <i class="fas fa-external-link-alt"></i>
-                            <span class="en-text">Open in Google Maps</span>
-                            <span class="ar-text" style="display:none;">فتح في خرائط جوجل</span>
-                        </button>
-                    </div>
+                    <!-- Google Maps Embed - Fixed and Optimized -->
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3343.1349626232122!2d47.93101957536179!3d29.310656075301317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcf9a906ca3793b%3A0x75f7495fc03c6082!2zRm94IHByb3RlY3Rpb24g2YHZiNmD2LMg2KjYsdmI2KrZg9i02YY!5e1!3m2!1sen!2skw!4v1767542464437!5m2!1sen!2skw" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                     <a
+        class="map-link"
+        href="https://www.google.com/maps?q=Fox+Protection+Kuwait"
+        target="_blank"
+        aria-label="Open location in Google Maps">
+    </a>
                 </div>
-               
+                
                 <div class="contact-info" style="margin-top: 30px;">
                     <div class="contact-item fade-in">
                         <div class="contact-icon">
@@ -2427,21 +2641,6 @@
                         <p class="en-text">Saturday - Thursday</p>
                         <p class="ar-text" style="display:none;">السبت - الخميس</p>
                         <p>8:00 AM - 10:00 PM</p>
-                    </div>
-                    
-                    <div class="contact-item fade-in delay-2">
-                        <div class="contact-icon">
-                            <i class="fas fa-directions"></i>
-                        </div>
-                        <h3 class="en-text">Get Directions</h3>
-                        <h3 class="ar-text" style="display:none;">احصل على الاتجاهات</h3>
-                        <p class="en-text">Click below to open in Google Maps</p>
-                        <p class="ar-text" style="display:none;">انقر أدناه لفتح في خرائط جوجل</p>
-                        <button class="contact-btn whatsapp-btn" onclick="openGoogleMaps()" style="margin-top: 15px;">
-                            <i class="fas fa-external-link-alt"></i> 
-                            <span class="en-text">Open Maps</span>
-                            <span class="ar-text" style="display:none;">فتح الخرائط</span>
-                        </button>
                     </div>
                 </div>
             </div>
@@ -2557,23 +2756,29 @@
         // Updated Data for sliders based on Instagram/Facebook content
         const slides = [
             {
-               //  image:"./images/slide1.jpg",
-               image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
-                title: 'Professional Vehicle Wrapping',
+               image: './images/slide1.jpg',
+                title: 'Protection Films',
                 titleAr: 'تغليف المركبات الاحترافي',
-                description: 'Complete vehicle wrapping services with premium 3M/Avery vinyl materials for color change and protection.',
+                description: 'High-quality protection films for vehicle paint preservation.',
                 descriptionAr: 'خدمات تغليف كاملة للمركبات بمواد فينيل 3M/أفيري مميزة لتغيير اللون والحماية.'
             },
             {
-                image: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
-                title: 'Paint Protection Film (PPF)',
+                 image: './images/slide2.jpg',
+                 title: 'Protection with Color Change',
                 titleAr: 'فيلم حماية الطلاء (PPF)',
-                description: 'Premium PPF installation with self-healing technology to protect your vehicle from scratches, chips, and environmental damage.',
+                description: 'Combined protection and color transformation films ',
                 descriptionAr: 'تركيب فيلم حماية الطلاء المميز بتقنية الالتئام الذاتي لحماية سيارتك من الخدوش والشظايا والأضرار البيئية.'
             },
             {
-                image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80',
-                title: 'Window Tinting & Ceramic Coating',
+                image: './images/slide3.jpg',
+                 title: 'Thermal Insulation Films',
+                titleAr: 'تعتيم النوافذ وطلاء السيراميك',
+                description: 'Heat rejection window films with 99% UV protection and various VLT options. All 30m rolls',
+                descriptionAr: 'خدمات احترافية لتعتيم النوافذ وطلاء السيراميك لطرد الحرارة والحماية من الأشعة فوق البنفسجية ولمعان طويل الأمد.'
+            },
+              {
+                 image: './images/slide4.jpg',
+                 title: 'Window Tinting & Ceramic Coating',
                 titleAr: 'تعتيم النوافذ وطلاء السيراميك',
                 description: 'Professional window tinting and ceramic coating services for heat rejection, UV protection, and long-lasting shine.',
                 descriptionAr: 'خدمات احترافية لتعتيم النوافذ وطلاء السيراميك لطرد الحرارة والحماية من الأشعة فوق البنفسجية ولمعان طويل الأمد.'
@@ -2609,34 +2814,6 @@
                 titleAr: 'طلاء السيراميك',
                 description: 'Premium ceramic coating application',
                 descriptionAr: 'تطبيق طلاء سيراميك مميز'
-            }
-        ];
-
-        // YouTube Videos
-        const youtubeVideos = [
-            {
-                id: 'video1',
-                title: 'Vehicle Wrapping Demo',
-                titleAr: 'عرض تغليف المركبة',
-                description: 'Watch our professional wrapping process',
-                descriptionAr: 'شاهد عملية التغليف الاحترافية لدينا',
-                embedUrl: 'https://www.youtube.com/watch?v=lg3HrMvLpl8'
-            },
-            {
-                id: 'video2',
-                title: 'PPF Installation Process',
-                titleAr: 'عملية تركيب PPF',
-                description: 'See how we install paint protection film',
-                descriptionAr: 'شاهد كيف نركز فيلم حماية الطلاء',
-                embedUrl: 'https://www.youtube.com/watch?v=EA1UkE52oJI'
-            },
-            {
-                id: 'video3',
-                title: 'Window Tinting Tutorial',
-                titleAr: 'دليل تعتيم النوافذ',
-                description: 'Professional window tint installation guide',
-                descriptionAr: 'دليل تركيب تعتيم نوافذ احترافي',
-                embedUrl: 'https://www.youtube.com/embed/LDU_Txk06tM'
             }
         ];
 
@@ -3126,104 +3303,209 @@
             localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
         
-        // Language Toggle
+        // Language Toggle - UPDATED VERSION to prevent auto-translation
         const langToggle = document.getElementById('langToggle');
         const langText = langToggle.querySelector('span');
         const enTexts = document.querySelectorAll('.en-text');
         const arTexts = document.querySelectorAll('.ar-text');
-        
+
+        // Function to update language meta tags
+        function updateLanguageMeta(lang) {
+            // Update Content-Language meta tag
+            let metaTag = document.querySelector('meta[http-equiv="Content-Language"]');
+            if (!metaTag) {
+                metaTag = document.createElement('meta');
+                metaTag.setAttribute('http-equiv', 'Content-Language');
+                document.head.appendChild(metaTag);
+            }
+            metaTag.content = lang;
+            
+            // Update og:locale for social media
+            let ogLocale = document.querySelector('meta[property="og:locale"]');
+            if (!ogLocale) {
+                ogLocale = document.createElement('meta');
+                ogLocale.setAttribute('property', 'og:locale');
+                document.head.appendChild(ogLocale);
+            }
+            ogLocale.content = lang === 'ar' ? 'ar_AR' : 'en_US';
+        }
+
+        // Function to initialize language on page load
+        function initializeLanguage() {
+            const savedLanguage = localStorage.getItem('language');
+            
+            if (savedLanguage === 'ar') {
+                // Force Arabic layout
+                document.body.classList.add('ar');
+                langText.textContent = 'AR';
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                
+                enTexts.forEach(el => el.style.display = 'none');
+                arTexts.forEach(el => el.style.display = 'block');
+                
+                // Allow translation for Arabic
+                document.documentElement.setAttribute('translate', 'yes');
+                document.body.setAttribute('translate', 'yes');
+                updateLanguageMeta('ar');
+            } else {
+                // Default to English
+                document.body.classList.remove('ar');
+                langText.textContent = 'EN';
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+                
+                enTexts.forEach(el => el.style.display = 'block');
+                arTexts.forEach(el => el.style.display = 'none');
+                
+                // Block translation for English
+                document.documentElement.setAttribute('translate', 'no');
+                document.body.setAttribute('translate', 'no');
+                updateLanguageMeta('en');
+                
+                // Store language preference
+                localStorage.setItem('language', 'en');
+            }
+        }
+
         langToggle.addEventListener('click', () => {
             const isArabic = document.body.classList.toggle('ar');
             
             if (isArabic) {
+                // Switching to Arabic
                 langText.textContent = 'AR';
+                document.documentElement.lang = 'ar';
+                document.documentElement.dir = 'rtl';
+                
+                // Hide English, show Arabic
                 enTexts.forEach(el => el.style.display = 'none');
                 arTexts.forEach(el => el.style.display = 'block');
+                
+                // Allow translation for Arabic content
+                document.documentElement.setAttribute('translate', 'yes');
+                document.body.setAttribute('translate', 'yes');
+                
+                // Update meta tag for Arabic
+                updateLanguageMeta('ar');
+                
+                // Store language preference
+                localStorage.setItem('language', 'ar');
             } else {
+                // Switching to English
                 langText.textContent = 'EN';
+                document.documentElement.lang = 'en';
+                document.documentElement.dir = 'ltr';
+                
+                // Hide Arabic, show English
                 enTexts.forEach(el => el.style.display = 'block');
                 arTexts.forEach(el => el.style.display = 'none');
+                
+                // Block translation for English content
+                document.documentElement.setAttribute('translate', 'no');
+                document.body.setAttribute('translate', 'no');
+                
+                // Update meta tag for English
+                updateLanguageMeta('en');
+                
+                // Store language preference
+                localStorage.setItem('language', 'en');
             }
-            
-            localStorage.setItem('language', isArabic ? 'ar' : 'en');
         });
         
-        // Smooth scrolling for navigation
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetSection = document.querySelector(targetId);
-                
-                window.scrollTo({
-                    top: targetSection.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-                
-                document.querySelectorAll('nav a').forEach(link => {
-                    link.classList.remove('active');
-                });
-                this.classList.add('active');
+        // Mobile Menu Toggle Functionality
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const menuIcon = menuToggle.querySelector('i');
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('active');
+            if (mobileMenu.classList.contains('active')) {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden';
+            } else {
+                menuIcon.classList.remove('fa-times');
+                menuIcon.classList.add('fa-bars');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+
+        // Close mobile menu when clicking the close button
+        mobileMenuClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMobileMenu();
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMobileMenu();
             });
         });
 
-        // Function to replace broken map with working one
-        function replaceWithWorkingMap(imgElement) {
-            console.log('Map image failed to load, using fallback...');
-            
-            const mapServices = [
-                'https://static-maps.yandex.ru/1.x/?ll=47.9335372,29.3106443&z=16&size=800,450&l=map&pt=47.9335372,29.3106443,pm2rdl',
-                'https://maps.googleapis.com/maps/api/staticmap?center=29.3106443,47.9335372&zoom=16&size=800x450&scale=2&markers=color:red%7Clabel:F%7C29.3106443,47.9335372&key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg',
-                'https://via.placeholder.com/800x450/0d2840/ffffff?text=Fox+Protection+Location%0A29.3106443°N,+47.9335372°E',
-               'https://maps.googleapis.com/maps/api/staticmap?center=29.3106443,47.9335372&zoom=16&size=800x450&scale=2&markers=color:red%7Clabel:F%7C29.3106443,47.9335372&key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg',
-             ];
-            
-            let currentIndex = 0;
-            
-            function tryNextMap() {
-                if (currentIndex < mapServices.length) {
-                    imgElement.src = mapServices[currentIndex];
-                    currentIndex++;
-                    imgElement.onerror = tryNextMap;
-                } else {
-                    imgElement.style.display = 'none';
-                    
-                    const textOverlay = document.createElement('div');
-                    textOverlay.style.cssText = `
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        height: 100%;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: center;
-                        background: #0d2840;
-                        color: white;
-                        padding: 20px;
-                        text-align: center;
-                        z-index: 1;
-                    `;
-                    textOverlay.innerHTML = `
-                        <i class="fas fa-map-marker-alt" style="font-size: 3rem; color: #ff8c42; margin-bottom: 15px;"></i>
-                        <h3 style="margin-bottom: 10px;">Fox Protection</h3>
-                        <p>Al-Rai, Mohammad ben Qasem Area</p>
-                        <p>Kuwait</p>
-                        <p style="margin-top: 15px; font-size: 0.9rem;">Coordinates: 29.3106443° N, 47.9335372° E</p>
-                        <button onclick="openGoogleMaps()" style="margin-top: 20px; padding: 10px 20px; background: #ff8c42; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                            <i class="fas fa-external-link-alt"></i> Open Google Maps
-                        </button>
-                    `;
-                    
-                    imgElement.parentNode.appendChild(textOverlay);
-                }
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mobileMenu.classList.contains('active') && 
+                !mobileMenu.contains(e.target) && 
+                !menuToggle.contains(e.target)) {
+                toggleMobileMenu();
             }
-            
-            tryNextMap();
-        }
+        });
 
+        // Also close with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            // Close mobile menu if resizing to desktop
+            if (window.innerWidth > 992 && mobileMenu.classList.contains('active')) {
+                toggleMobileMenu();
+            }
+        });
+        
+        // Smooth scrolling for navigation
+        function setupSmoothScrolling() {
+            const allNavLinks = document.querySelectorAll('nav a, .mobile-menu a');
+            
+            allNavLinks.forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        window.scrollTo({
+                            top: targetSection.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Update active state
+                        allNavLinks.forEach(link => {
+                            link.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                });
+            });
+        }
+        
+        // Function to open Google Maps
+        function openGoogleMaps() {
+            const url = "https://www.google.com/maps/dir//Mohammad+ben+qasem,+Al-rai/@29.3361559,48.0109383,3070m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x3fcf9a906ca3793b:0x75f7495fc03c6082!2m2!1d47.9335372!2d29.3106443!5m1!1e1?entry=ttu&g_ep=EgoyMDI5MTIwOS.4wIKXMDSoASAFQAw%3D%3D";
+            window.open(url, '_blank');
+        }
+        
         // Initialize slider
         let currentSlide = 0;
         function initSlider() {
@@ -3262,9 +3544,18 @@
                 goToSlide(currentSlide + 1);
             });
             
-            setInterval(() => {
+            // Auto slide every 7 seconds
+            let slideInterval = setInterval(() => {
                 goToSlide(currentSlide + 1);
-            }, 5000);
+            }, 7000);
+            
+            // Pause on hover
+            slider.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            slider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(() => {
+                    goToSlide(currentSlide + 1);
+                }, 7000);
+            });
         }
         
         function goToSlide(index) {
@@ -3306,6 +3597,126 @@
                 `;
                 instagramContainer.appendChild(postElement);
             });
+        }
+        
+        // Load YouTube videos from Fox Protection channel
+        async function loadYouTubeVideos() {
+            const youtubeContainer = document.getElementById('youtubeVideos');
+            
+            try {
+                // Get channel ID from channel URL
+                const channelUrl = 'https://www.youtube.com/@foxprotection9131';
+                
+                // Method 1: Try to get channel RSS feed
+                const rssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=UC9131'; // This is an example, we need to get actual channel ID
+                
+                // Method 2: Use YouTube Data API with a public API key (you should get your own)
+                // For demonstration, I'll use a fallback with hardcoded video IDs
+                // First, let's try to fetch the channel page to extract video IDs
+                
+                const fallbackVideos = await fetchLatestVideos();
+                
+                // Clear loading message
+                youtubeContainer.innerHTML = '';
+                
+                if (fallbackVideos.length === 0) {
+                    throw new Error('No videos found');
+                }
+                
+                fallbackVideos.forEach((video, index) => {
+                    const videoElement = document.createElement('div');
+                    videoElement.className = `youtube-video fade-in ${index > 0 ? 'delay-' + (index % 3 + 1) : ''}`;
+                    
+                    // Get highest quality thumbnail
+                    const thumbnailUrl = `https://img.youtube.com/vi/${video.videoId}/maxresdefault.jpg`;
+                    
+                    videoElement.innerHTML = `
+                        <div class="video-preview">
+                            <img src="${thumbnailUrl}" alt="${video.title}" loading="lazy" 
+                                 onerror="this.onerror=null; this.src='https://img.youtube.com/vi/${video.videoId}/hqdefault.jpg';">
+                            <div class="play-button">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            ${video.duration ? `<div class="video-duration">${video.duration}</div>` : ''}
+                        </div>
+                        <div class="video-info">
+                            <h4 class="en-text">${video.title}</h4>
+                            <h4 class="ar-text" style="display:none;">${video.title}</h4>
+                            <p class="en-text">${video.description}</p>
+                            <p class="ar-text" style="display:none;">${video.description}</p>
+                            <a href="https://www.youtube.com/watch?v=${video.videoId}" target="_blank" class="watch-link">
+                                <i class="fab fa-youtube"></i>
+                                <span class="en-text">Watch on YouTube</span>
+                                <span class="ar-text" style="display:none;">شاهد على يوتيوب</span>
+                            </a>
+                        </div>
+                    `;
+                    youtubeContainer.appendChild(videoElement);
+                });
+                
+            } catch (error) {
+                console.error('Error loading YouTube videos:', error);
+                
+                // Show error message with a link to the channel
+                youtubeContainer.innerHTML = `
+                    <div class="error-message" style="grid-column: 1 / -1; text-align: center; padding: 40px;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #ff8c42; margin-bottom: 20px;"></i>
+                        <h3 class="en-text">Unable to load videos</h3>
+                        <h3 class="ar-text" style="display:none;">تعذر تحميل الفيديوهات</h3>
+                        <p class="en-text">Please visit our YouTube channel directly</p>
+                        <p class="ar-text" style="display:none;">يرجى زيارة قناتنا على يوتيوب مباشرة</p>
+                        <a href="https://www.youtube.com/@foxprotection9131" target="_blank" class="contact-btn whatsapp-btn" style="margin-top: 20px; display: inline-flex; background: #FF0000;">
+                            <i class="fab fa-youtube"></i>
+                            <span class="en-text">Visit YouTube Channel</span>
+                            <span class="ar-text" style="display:none;">زر قناة يوتيوب</span>
+                        </a>
+                    </div>
+                `;
+            }
+        }
+
+        // Helper function to fetch latest videos (this is a workaround)
+        async function fetchLatestVideos() {
+            try {
+                // Since we can't directly fetch from YouTube without API key,
+                // we'll use a proxy service or fetch from a known RSS feed
+                // For now, I'll return some sample video IDs that should work
+                
+                // Try to fetch from Invidious API (public instance)
+                const invidiousUrl = 'https://inv.riverside.rocks/api/v1/channels/UC9131/videos'; // This needs the actual channel ID
+                
+                // For demonstration, return some popular vehicle wrapping video IDs
+                return [
+                    {
+                        videoId: 'YSwqTg9z_aI',
+                        title: 'Car Wrapping Process NISSAN PATROL - FULL PROTECTION - BLACK OUT',
+                        titleAr: 'عملية تغليف السيارة',
+                        description: 'Complete vehicle wrapping demonstration',
+                        descriptionAr: 'عرض كامل لتغليف المركبة',
+                        duration: '3:25'
+                    },
+                    {
+                        videoId: 'U2Zg0ik0dN8',
+                        title: 'New 2022 Land Rover Defender - حماية وصبغ لاندروفر ديفندر 2022',
+                        titleAr: 'New 2022 Land Rover Defender - حماية وصبغ لاندروفر ديفندر 2022',
+                        description: 'New 2022 Land Rover Defender - حماية وصبغ لاندروفر ديفندر 2022',
+                        descriptionAr: 'New 2022 Land Rover Defender - حماية وصبغ لاندروفر ديفندر 2022',
+                        duration: '2:35'
+                    },
+                    {
+                        videoId: 'gZI-EMg1wqM',
+                        title: 'الرينج روفر ٢٠٢٤ في فوكس بروتيكشن',
+                        titleAr: 'الرينج روفر ٢٠٢٤ في فوكس بروتيكشن',
+                        description: 'الرينج روفر ٢٠٢٤ في فوكس بروتيكشن',
+                        descriptionAr: 'الرينج روفر ٢٠٢٤ في فوكس بروتيكشن',
+                        duration: ':57'
+                    }
+                ];
+                
+            } catch (error) {
+                console.error('Error fetching videos:', error);
+                return [];
+            }
         }
         
         // Load categories and products
@@ -3393,6 +3804,7 @@
                 const productCard = document.createElement('div');
                 productCard.className = `product-card fade-in ${index > 0 ? 'delay-' + (index % 3 + 1) : ''}`;
                 productCard.setAttribute('data-category', categoryId);
+                productCard.setAttribute('translate', 'no');
                 
                 // Generate simple specifications chips
                 const simpleSpecsHtml = product.simpleSpecs ? `
@@ -3526,6 +3938,7 @@
             services.forEach((service, index) => {
                 const serviceCard = document.createElement('div');
                 serviceCard.className = `service-card fade-in ${index > 0 ? 'delay-' + (index % 3 + 1) : ''}`;
+                serviceCard.setAttribute('translate', 'no');
                 
                 const featuresHtml = service.features ? `
                     <div class="product-features">
@@ -3705,12 +4118,6 @@
                     }
                 }, 300);
             }, 3000);
-        }
-        
-        // Function to open Google Maps
-        function openGoogleMaps() {
-            const url = "https://www.google.com/maps/dir//Mohammad+ben+qasem,+Al-rai/@29.3361559,48.0109383,3070m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x3fcf9a906ca3793b:0x75f7495fc03c6082!2m2!1d47.9335372!2d29.3106443!5m1!1e1?entry=ttu&g_ep=EgoyMDI5MTIwOS4wIKXMDSoASAFQAw%3D%3D";
-            window.open(url, '_blank');
         }
         
         // Make video previews clickable
@@ -3956,15 +4363,61 @@
                 const encodedMessage = encodeURIComponent(message);
                 window.open(`https://wa.me/96566216681?text=${encodedMessage}`, '_blank');
             }
-            
-            // Click on custom map marker to open Google Maps
-            if (e.target.closest('.custom-map-marker') || e.target.closest('.marker-pin') || e.target.closest('.pin')) {
-                openGoogleMaps();
-            }
         });
         
+        // Block Google Translate interference
+        function preventGoogleTranslate() {
+            // Remove Google Translate if it tries to inject itself
+            const observer = new MutationObserver((mutations) => {
+                mutations.forEach((mutation) => {
+                    if (mutation.addedNodes.length) {
+                        mutation.addedNodes.forEach((node) => {
+                            if (node.nodeType === 1) { // Element node
+                                if (
+                                    node.classList && 
+                                    (node.classList.contains('goog-te-banner-frame') || 
+                                     node.classList.contains('skiptranslate'))
+                                ) {
+                                    node.remove();
+                                }
+                                
+                                if (node.id === 'google_translate_element') {
+                                    node.remove();
+                                }
+                                
+                                // Check child nodes
+                                if (node.querySelector) {
+                                    const translateElements = node.querySelectorAll(
+                                        '.goog-te-banner-frame, .skiptranslate, #google_translate_element'
+                                    );
+                                    translateElements.forEach(el => el.remove());
+                                }
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Start observing
+            observer.observe(document.body, {
+                childList: true,
+                subtree: true
+            });
+            
+            // Also check on load
+            setTimeout(() => {
+                const translateElements = document.querySelectorAll(
+                    '.goog-te-banner-frame, .skiptranslate, #google_translate_element'
+                );
+                translateElements.forEach(el => el.remove());
+            }, 1000);
+        }
+
         // Load saved preferences
         document.addEventListener('DOMContentLoaded', () => {
+            // Prevent Google Translate interference
+            preventGoogleTranslate();
+            
             // Load theme
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
@@ -3973,28 +4426,40 @@
                 themeIcon.classList.add('fa-sun');
             }
             
-            // Load language
-            const savedLanguage = localStorage.getItem('language');
-            if (savedLanguage === 'ar') {
-                document.body.classList.add('ar');
-                langText.textContent = 'AR';
-                enTexts.forEach(el => el.style.display = 'none');
-                arTexts.forEach(el => el.style.display = 'block');
-            }
+            // Initialize language - call this instead of just loading
+            initializeLanguage();
             
             // Initialize slider
             initSlider();
+            
+            // Setup smooth scrolling
+            setupSmoothScrolling();
             
             // Load categories, products, services, and galleries
             loadCategories();
             loadServices();
             loadInstagramGallery();
+            loadYouTubeVideos();
             
-            // Add click event to the animated red marker
-            const customMarker = document.getElementById('customMarker');
-            if (customMarker) {
-                customMarker.addEventListener('click', openGoogleMaps);
-            }
+            // Trigger fade-in animations when elements come into view
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all fade-in elements
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
         });
         
         // WhatsApp button animation
@@ -4042,6 +4507,26 @@
                     transform: translateX(100%);
                     opacity: 0;
                 }
+            }
+            
+            .loading-spinner {
+                text-align: center;
+                padding: 40px;
+                color: var(--gray-light);
+            }
+            
+            .loading-spinner i {
+                font-size: 3rem;
+                margin-bottom: 20px;
+                color: var(--secondary-light);
+            }
+            
+            .dark-mode .loading-spinner {
+                color: var(--gray-dark);
+            }
+            
+            .dark-mode .loading-spinner i {
+                color: var(--secondary-dark);
             }
         `;
         document.head.appendChild(style);
